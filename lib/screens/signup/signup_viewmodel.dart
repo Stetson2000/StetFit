@@ -1,9 +1,10 @@
-import '../../services/rest.dart';
+import '../../services/signup/signup_services.dart';
 import '../../models/user.dart';
 
 class SignUpViewModel {
   User? user;
-
-  Future<void> addUser() async{}
-
+  SignUpService? dataservice;
+  Future<void> addUser(User user) async {
+    dataservice!.addUser(user);
+  }
 }
