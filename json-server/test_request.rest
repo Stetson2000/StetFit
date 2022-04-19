@@ -9,7 +9,7 @@ GET {{baseUrl}}/users
 
 
 ###
-DELETE {{baseUrl}}/users/
+DELETE {{baseUrl}}/users/8
 
 ### Request 3 : Create a new user
 POST {{baseUrl}}/users HTTP/1.1

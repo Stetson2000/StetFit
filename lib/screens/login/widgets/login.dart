@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:stetfit/screens/login/login_view.dart';
+import 'package:stetfit/screens/signup/signup_view.dart';
 
-class SignUpWith extends StatelessWidget {
+class Login extends StatelessWidget {
   final IconData? icon;
 
-  const SignUpWith({Key? key, this.icon}) : super(key: key);
-
+  const Login({
+    Key? key,
+    required this.icon,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,11 +22,9 @@ class SignUpWith extends StatelessWidget {
         children: [
           Icon(icon, size: 24),
           TextButton(
-              onPressed: () {
-                Navigator.of(context)
-                    .pushNamed(LoginScreen.routeName, arguments: icon);
-              },
-              child: const Text('Sign in')),
+              onPressed: () => Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => SignUpScreen())),
+              child: const Text('Login')),
         ],
       ),
     );

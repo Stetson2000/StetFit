@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 
 class User with ChangeNotifier {
-  final String? id;
+  final dynamic id;
   final String? name;
   final String? username;
   final String? password;
 
+
   User({
-    required this.id,
+    this.id,
     required this.name,
     required this.password,
     required this.username,
@@ -20,6 +21,10 @@ class User with ChangeNotifier {
           username: json['username'],
           password: json['password'],
         );
-  Map<String, dynamic> toJson() =>
-      {'id': id, 'name': name, 'username': username, 'password': password};
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': name,
+        'username': username,
+        'password': password,
+      };
 }
