@@ -16,7 +16,7 @@ class UserInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 55,
-      margin: EdgeInsets.only(bottom: 15),
+      margin: const EdgeInsets.only(bottom: 15),
       decoration: BoxDecoration(
           color: Colors.blueGrey.shade200,
           borderRadius: BorderRadius.circular(30)),
@@ -29,10 +29,8 @@ class UserInput extends StatelessWidget {
           autofocus: false,
           decoration: InputDecoration.collapsed(
             hintText: hintTitle,
-            hintStyle: TextStyle(
-                fontSize: 18,
-                color: Colors.white70,
-                fontStyle: FontStyle.italic),
+            hintStyle:
+                Theme.of(context).textTheme.headline6?.copyWith(fontSize: 18),
           ),
           keyboardType: keyboardType,
         ),

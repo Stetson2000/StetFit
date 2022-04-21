@@ -8,6 +8,12 @@
 GET {{baseUrl}}/users
 
 
+
+###
+GET {{baseUrl}}/users/?username=
+
+
+
 ###
 DELETE {{baseUrl}}/users/8
 
@@ -19,3 +25,7 @@ Content-Type: application/json
     "username": "email@email.com",
     "password": "123"
 }
+
+###
+GET {{baseUrl}}/users?username=ahmed@opa&&password=123
+

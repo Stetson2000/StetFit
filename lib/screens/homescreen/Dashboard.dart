@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../models/user.dart';
 
-class DashboardScreen extends StatelessWidget {
+class MainDashboardScreen extends StatelessWidget {
   static const routeName = '/MainDashboard-screen';
 
-  const DashboardScreen({Key? key}) : super(key: key);
+  const MainDashboardScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

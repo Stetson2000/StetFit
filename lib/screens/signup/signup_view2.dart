@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:stetfit/models/user.dart';
-import 'package:stetfit/providers/users.dart';
+import 'package:stetfit/screens/signup/signup_view3.dart';
 
-import '../signup/widgets/signupwith.dart';
-import '../signup/widgets/userinput.dart';
-import '../signup/signup_view2.dart';
+import './widgets/userinput.dart';
+import './widgets/signupwith.dart';
+import 'package:gender_picker/source/enums.dart';
+import 'package:gender_picker/source/gender_picker.dart';
 
-class SignUpScreen extends StatefulWidget {
-  SignUpScreen({Key? key}) : super(key: key);
+class SignUpScreen2 extends StatelessWidget {
+  const SignUpScreen2({Key? key}) : super(key: key);
 
-  static const routeName = '/signup-screen';
-
-  @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
-}
-
-class _SignUpScreenState extends State<SignUpScreen> {
-  final fullnamecontroller = TextEditingController();
-
-  final usernamecontroller = TextEditingController();
-
-  final passwordcontroller = TextEditingController();
-
+  static const routeName = '/signup-screen2';
   @override
   Widget build(BuildContext context) {
+    // if (ModalRoute.of(context)!.settings.arguments != null) {
+    //   userInfo =
+    // final  userInfo =
+    //     ModalRoute.of(context)!.settings.arguments as Map<String?, dynamic>;
+
+    final  String ?username =  ModalRoute.of(context)!.settings.arguments as String;
+    print(username);
+    // print(userInfo['username']);
+    // } else {
+    //   userInfo = {'fullname': 'Test', 'username': 'Test', 'password': ' Test'};
+    //   print(userInfo['username']);
+    // }
+
+    Gender? gender;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -60,20 +61,38 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           const SizedBox(height: 45),
-                          UserInput(
-                            userInput: fullnamecontroller,
-                            hintTitle: 'Full Name',
-                            keyboardType: TextInputType.name,
-                          ),
-                          UserInput(
-                            userInput: usernamecontroller,
-                            hintTitle: 'Username',
-                            keyboardType: TextInputType.emailAddress,
-                          ),
-                          UserInput(
-                            userInput: passwordcontroller,
-                            hintTitle: 'Password',
-                            keyboardType: TextInputType.visiblePassword,
+
+                          Container(
+                            margin: const EdgeInsets.only(left: 30),
+                            child: GenderPickerWithImage(
+                              verticalAlignedText: true,
+                              linearGradient: const LinearGradient(
+                                  colors: [
+                                    Color.fromARGB(255, 228, 239, 248),
+                                    Color.fromARGB(255, 83, 240, 188)
+                                  ],
+                                  tileMode: TileMode.clamp,
+                                  begin: Alignment.bottomRight,
+                                  end: Alignment.topLeft,
+                                  stops: [0.0, 1.0]),
+                              selectedGender: Gender.Male,
+                              selectedGenderTextStyle: const TextStyle(
+                                  color: Color.fromARGB(255, 34, 34, 34),
+                                  fontWeight: FontWeight.bold),
+                              unSelectedGenderTextStyle: const TextStyle(
+                                  color: Color.fromARGB(255, 66, 64, 64),
+                                  fontWeight: FontWeight.normal),
+                              onChanged: (Gender? choice) {
+                                gender = choice;
+                              },
+                              equallyAligned: true,
+                              animationDuration: Duration(milliseconds: 300),
+                              isCircular: true,
+                              // default : true,
+                              opacityOfGradient: 0.25,
+                              padding: const EdgeInsets.all(3),
+                              size: 100, //default : 40
+                            ),
                           ),
 
                           // Container(
@@ -90,14 +109,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           //     //     borderRadius: BorderRadius.circular(25)),
 
                           //     onPressed: () {
-                          //       print(usernamecontroller);
-                          //       print(passwordcontroller);
+                          //       print(emailController);
+                          //       print(passwordController);
                           //       // Provider.of<Users>(context, listen: false)
                           //       //     .addUser(User(
 
-                          //       //         fullname: usernamecontroller.text,
-                          //       //         password: passwordcontroller.text,
-                          //       //         username: usernamecontroller.text));
+                          //       //         fullname: emailController.text,
+                          //       //         password: passwordController.text,
+                          //       //         username: emailController.text));
 
                           //       // Navigator.of(context).push(MaterialPageRoute(
                           //       //     builder: (ctx) => SuccessfulScreen()));
@@ -117,27 +136,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             padding: const EdgeInsets.all(10),
                             alignment: Alignment.centerRight,
                             child: FloatingActionButton(
-                                onPressed: ()  async{
-                                  Map<String?, dynamic> prospectiveuserInfo = {
-                                    'fullname': fullnamecontroller.text,
-                                    'username': usernamecontroller.text,
-                                    'password': passwordcontroller.text,
-                                  };
+                                onPressed: () {
+                                  // userInfo['gender'] = (gender == Gender.Male)
+                                  //     ? 'Male'
+                                  //     : 'Female';
 
-                                  // print(prospectiveuserInfo['fullname']);
-                                  // print(prospectiveuserInfo['username']);
-                                  // print(prospectiveuserInfo['password']);
-                                  Navigator.pushNamed(context,
-                                      SignUpScreen2.routeName,
-                                      arguments: fullnamecontroller.text);
+                                  Navigator.pushNamed(
+                                      context, SignUpScreen3.routeName,
+                                      // arguments: userInfo
+                                      );
                                 },
                                 child: const Icon(Icons.arrow_forward)),
                           ),
-                          const SizedBox(height: 2),
-                          const Center(
-                            child: Text('Forgot password ?'),
-                          ),
-                          const SizedBox(height: 2),
+                          const SizedBox(height: 10),
+
+                          const SizedBox(height: 20),
                           Padding(
                             padding: const EdgeInsets.only(top: 25.0),
                             child: Row(

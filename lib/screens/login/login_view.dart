@@ -65,7 +65,7 @@ class LoginScreen extends StatelessWidget {
                                 username: emailController.text,
                                 password: passwordController.text);
                             Navigator.pushNamed(
-                                context, DashboardScreen.routeName,
+                                context, MainDashboardScreen.routeName,
                                 arguments: user);
                           },
                           child: const Text(
