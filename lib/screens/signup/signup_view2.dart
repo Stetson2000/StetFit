@@ -7,6 +7,8 @@ import 'package:gender_picker/source/enums.dart';
 import 'package:gender_picker/source/gender_picker.dart';
 
 class SignUpScreen2 extends StatelessWidget {
+  // final Map<String?,dynamic>? args;
+
   const SignUpScreen2({Key? key}) : super(key: key);
 
   static const routeName = '/signup-screen2';
@@ -14,17 +16,17 @@ class SignUpScreen2 extends StatelessWidget {
   Widget build(BuildContext context) {
     // if (ModalRoute.of(context)!.settings.arguments != null) {
     //   userInfo =
-    // final  userInfo =
-    //     ModalRoute.of(context)!.settings.arguments as Map<String?, dynamic>;
+    final Map<String?, dynamic> userInfo =
+        ModalRoute.of(context)!.settings.arguments as Map<String?, dynamic>;
 
-    final  String ?username =  ModalRoute.of(context)!.settings.arguments as String;
-    print(username);
+    // final String? username =
+    //     ModalRoute.of(context)!.settings.arguments as String;
+    // print(username);
     // print(userInfo['username']);
     // } else {
     //   userInfo = {'fullname': 'Test', 'username': 'Test', 'password': ' Test'};
     //   print(userInfo['username']);
     // }
-
     Gender? gender;
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -84,6 +86,11 @@ class SignUpScreen2 extends StatelessWidget {
                                   fontWeight: FontWeight.normal),
                               onChanged: (Gender? choice) {
                                 gender = choice;
+                                // userInfo['gender'] = choice;
+
+                                // print(userInfo['fullname']);
+                                // print(userInfo['password']);
+                                // print(userInfo['gender']);
                               },
                               equallyAligned: true,
                               animationDuration: Duration(milliseconds: 300),
@@ -137,14 +144,14 @@ class SignUpScreen2 extends StatelessWidget {
                             alignment: Alignment.centerRight,
                             child: FloatingActionButton(
                                 onPressed: () {
-                                  // userInfo['gender'] = (gender == Gender.Male)
-                                  //     ? 'Male'
-                                  //     : 'Female';
+                                  userInfo['gender'] = (gender == Gender.Male)
+                                      ? 'Male'
+                                      : 'Female';
 
                                   Navigator.pushNamed(
-                                      context, SignUpScreen3.routeName,
-                                      // arguments: userInfo
-                                      );
+                                    context, SignUpScreen3.routeName,
+                                    arguments: userInfo
+                                  );
                                 },
                                 child: const Icon(Icons.arrow_forward)),
                           ),

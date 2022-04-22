@@ -3,9 +3,9 @@ import 'package:stetfit/models/user.dart';
 
 class ActivityLevelButton extends StatelessWidget {
   final String? title;
-  final ActivityLevel? activityLevel;
+  // final ActivityLevel? activityLevel;
 
-  const ActivityLevelButton(this.title, this.activityLevel);
+  const ActivityLevelButton(this.title);
   // ActivityLevelButton(this.title,this.activityLevel);
 
   // void selectCatg(BuildContext ctx) {
@@ -20,7 +20,7 @@ class ActivityLevelButton extends StatelessWidget {
     return InkWell(
       borderRadius: BorderRadius.circular(15),
       splashColor: Theme.of(context).primaryColor,
-      onTap: () => print(activityLevel),
+      // onTap: () => print(activityLevel),
       child: Container(
         padding: const EdgeInsets.all(15),
         child: Text(

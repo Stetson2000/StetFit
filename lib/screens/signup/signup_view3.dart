@@ -15,6 +15,8 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
   int prospectiveuserage = 18;
   @override
   Widget build(BuildContext context) {
+    final Map<String?, dynamic> userInfo =
+        ModalRoute.of(context)!.settings.arguments as Map<String?, dynamic>;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -84,8 +86,16 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
                             padding: const EdgeInsets.all(10),
                             alignment: Alignment.centerRight,
                             child: FloatingActionButton(
-                                onPressed: () => Navigator.pushNamed(
-                                    context, SignUpScreen4.routeName),
+                                onPressed: () {
+                                  userInfo['age'] = prospectiveuserage;
+
+                                  
+                                  Navigator.pushNamed(
+                                    context,
+                                    SignUpScreen4.routeName,
+                                    arguments: userInfo,
+                                  );
+                                },
                                 child: const Icon(Icons.arrow_forward)),
                           ),
                           const SizedBox(height: 10),

@@ -19,7 +19,7 @@ class User with ChangeNotifier {
   final int? height;
   final int? weight;
   final int? targetweight;
-  final ActivityLevel? activitylevel;
+  final int? activitylevel;
   final int? calorieTaken;
   final int? protienTaken;
   final int? carbTaken;

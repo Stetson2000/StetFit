@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:numberpicker/numberpicker.dart';
+import 'package:provider/provider.dart';
 import 'package:stetfit/models/user.dart';
+import 'package:stetfit/screens/login/login_view.dart';
+import 'package:stetfit/screens/signup/signup_viewmodel.dart';
 import 'package:stetfit/screens/signup/widgets/activitylevelButton.dart';
 import 'package:stetfit/screens/signup/widgets/alignedgrid.dart';
 
@@ -14,11 +17,16 @@ class SignUpScreen5 extends StatefulWidget {
 }
 
 class _SignUpScreen5State extends State<SignUpScreen5> {
-  int prospectivetargetweight = 160;
-  int prospectiveactivitylvl = 60;
+  int prospectivetargetweight = 60;
+  // ActivityLevel activityLevel = ActivityLevel.sedentary;
+  int activityLevel = 1;
+  // int prospectiveactivitylvl = 60;
 
   @override
   Widget build(BuildContext context) {
+    final Map<String?, dynamic> userInfo =
+        ModalRoute.of(context)!.settings.arguments as Map<String?, dynamic>;
+
     final size = MediaQuery.of(context).size;
     double height = size.height;
     double width = size.width;
@@ -66,69 +74,94 @@ class _SignUpScreen5State extends State<SignUpScreen5> {
                                 TextStyle(fontSize: 18, color: Colors.black54),
                           ),
                           const SizedBox(height: 10),
-                          // Container(
-                          //     margin: const EdgeInsets.only(
-                          //         left: 45, right: 45, top: 15),
-                          //     alignment: Alignment.center,
-                          //     child: const Divider(
-                          //       thickness: 2,
-                          //     )),
-                          // Container(
-                          //   alignment: Alignment.center,
-                          //   height: 400,
-                          //   child: GridView(
-                          //     padding: const EdgeInsets.all(30),
-                          //     children: const [
-
-                          //     ],
-                          //     gridDelegate:
-                          //         const SliverGridDelegateWithMaxCrossAxisExtent(
-                          //       maxCrossAxisExtent: 150,2
-                          //       childAspectRatio: 1.5,
-                          //       crossAxisSpacing: 20,
-                          //       mainAxisSpacing: 20,
-                          //     ),
-                          //   ),
-                          // ),
-                          AlignedGrid(),
+                          SingleChildScrollView(
+                            child: Wrap(
+                                runSpacing: 4,
+                                spacing: 4,
+                                alignment: WrapAlignment.center,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () => activityLevel = 1,
+                                    child: const ActivityLevelButton(
+                                      'Sedentary',
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () => activityLevel = 2,
+                                    child: const ActivityLevelButton(
+                                      'Lightly Active',
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () => activityLevel = 3,
+                                    child: const ActivityLevelButton(
+                                      'Moderately Active',
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () => activityLevel = 4,
+                                    child: const ActivityLevelButton(
+                                      'Highly Active',
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () => activityLevel = 5,
+                                    child: const ActivityLevelButton(
+                                      'Extra Active',
+                                    ),
+                                  ),
+                                ]),
+                          ),
                           const SizedBox(height: 10),
-                          // Container(
-                          //     margin:
-                          //         const EdgeInsets.only(left: 50, right: 50),
-                          //     alignment: Alignment.center,
-                          //     child: const Divider(
-                          //       thickness: 2,
-                          //     )),
                           const Text(
                             'Please Pick Your Target Weight in KG:',
                             textAlign: TextAlign.center,
                             style:
                                 TextStyle(fontSize: 18, color: Colors.black54),
                           ),
-                          // Container(
-                          //     margin: const EdgeInsets.only(
-                          //         left: 45, right: 45, top: 15),
-                          //     alignment: Alignment.center,
-                          //     child: const Divider(
-                          //       thickness: 2,
-                          //     )),
                           NumberPicker(
                               decoration: BoxDecoration(
                                   color: Colors.black12,
                                   borderRadius: BorderRadius.circular(15)),
-                              value: 50,
+                              value: prospectivetargetweight,
                               minValue: 45,
                               maxValue: 150,
                               onChanged: (value) {
-                                // setState(() => prospectiveuserweight = value);
+                                setState(() => prospectivetargetweight = value);
                               }),
                           Container(
                             padding: const EdgeInsets.all(10),
                             alignment: Alignment.centerRight,
-                            child: FloatingActionButton(
-                                onPressed: () => Navigator.pushNamed(
-                                    context, SignUpScreen5.routeName),
-                                child: const Icon(Icons.arrow_forward)),
+                            child: Consumer<SignUpViewModel>(
+                              builder: (context, viewmodel, _) =>
+                                  FloatingActionButton(
+                                      onPressed: () async {
+                                        userInfo['activitylevel'] =
+                                            activityLevel;
+                                        userInfo['targetweight'] =
+                                            prospectivetargetweight;
+
+                                        await viewmodel.addUser(User(
+                                          fullname: userInfo['fullname'],
+                                          username: userInfo['username'],
+                                          password: userInfo['password'],
+                                          gender: userInfo['gender'],
+                                          age: userInfo['age'],
+                                          height: userInfo['height'],
+                                          weight: userInfo['weight'],
+                                          targetweight:
+                                              userInfo['targetweight'],
+                                          activitylevel:
+                                              userInfo['activitylevel'],
+                                        ));
+
+                                        Navigator.pushNamedAndRemoveUntil(
+                                            context,
+                                            LoginScreen.routeName,
+                                            (route) => false);
+                                      },
+                                      child: const Icon(Icons.done)),
+                            ),
                           )
                         ],
                       ),

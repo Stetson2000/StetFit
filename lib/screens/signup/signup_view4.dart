@@ -19,6 +19,9 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
     final size = MediaQuery.of(context).size;
     double height = size.height;
     double width = size.width;
+
+    final Map<String?, dynamic> userInfo =
+        ModalRoute.of(context)!.settings.arguments as Map<String?, dynamic>;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -113,8 +116,12 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
                             padding: const EdgeInsets.all(10),
                             alignment: Alignment.centerRight,
                             child: FloatingActionButton(
-                                onPressed: () => Navigator.pushNamed(
-                                    context, SignUpScreen5.routeName),
+                                onPressed: () {
+                                  userInfo['weight'] = prospectiveuserweight;
+                                  userInfo['height'] = prospectiveuserheight;
+                                  Navigator.pushNamed(
+                                      context, SignUpScreen5.routeName,arguments: userInfo);
+                                },
                                 child: const Icon(Icons.arrow_forward)),
                           )
                         ],

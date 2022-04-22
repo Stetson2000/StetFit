@@ -129,7 +129,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   // print(prospectiveuserInfo['password']);
                                   Navigator.pushNamed(context,
                                       SignUpScreen2.routeName,
-                                      arguments: fullnamecontroller.text);
+                                      arguments: prospectiveuserInfo);
                                 },
                                 child: const Icon(Icons.arrow_forward)),
                           ),

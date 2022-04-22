@@ -4,7 +4,7 @@ import 'package:stetfit/screens/signup/signup_view.dart';
 import 'package:stetfit/services/signup/signup_services.dart';
 
 
-class Users extends SignUpService with ChangeNotifier {
+class Users  with ChangeNotifier {
 
 
   List<User> users = [];
