@@ -7,6 +7,8 @@ import 'package:stetfit/screens/signup/signup_viewmodel.dart';
 import 'package:stetfit/screens/signup/widgets/activitylevelButton.dart';
 import 'package:stetfit/screens/signup/widgets/alignedgrid.dart';
 
+import 'widgets/signupwith.dart';
+
 class SignUpScreen5 extends StatefulWidget {
   const SignUpScreen5({Key? key}) : super(key: key);
 
@@ -20,6 +22,7 @@ class _SignUpScreen5State extends State<SignUpScreen5> {
   int prospectivetargetweight = 60;
   // ActivityLevel activityLevel = ActivityLevel.sedentary;
   int activityLevel = 1;
+  int? selectIndex = 0;
   // int prospectiveactivitylvl = 60;
 
   @override
@@ -81,33 +84,69 @@ class _SignUpScreen5State extends State<SignUpScreen5> {
                                 alignment: WrapAlignment.center,
                                 children: [
                                   GestureDetector(
-                                    onTap: () => activityLevel = 1,
-                                    child: const ActivityLevelButton(
-                                      'Sedentary',
+                                    onTap: () {
+                                      setState(() {
+                                        selectIndex = 1;
+                                      });
+                                      activityLevel = 1;
+                                    },
+                                    child: ActivityLevelButton(
+                                      title: 'Sedentary',
+                                      selectedId: selectIndex,
+                                      buttonId: 1,
                                     ),
                                   ),
                                   GestureDetector(
-                                    onTap: () => activityLevel = 2,
-                                    child: const ActivityLevelButton(
-                                      'Lightly Active',
+                                    onTap: () {
+                                      setState(() {
+                                        selectIndex = 2;
+                                      });
+
+                                      activityLevel = 2;
+                                    },
+                                    child: ActivityLevelButton(
+                                      title: 'Lightly Active',
+                                      selectedId: selectIndex,
+                                      buttonId: 2,
                                     ),
                                   ),
                                   GestureDetector(
-                                    onTap: () => activityLevel = 3,
-                                    child: const ActivityLevelButton(
-                                      'Moderately Active',
+                                    onTap: () {
+                                      setState(() {
+                                        selectIndex = 3;
+                                      });
+                                      activityLevel = 3;
+                                    },
+                                    child: ActivityLevelButton(
+                                      title: 'Moderately Active',
+                                      selectedId: selectIndex,
+                                      buttonId: 3,
                                     ),
                                   ),
                                   GestureDetector(
-                                    onTap: () => activityLevel = 4,
-                                    child: const ActivityLevelButton(
-                                      'Highly Active',
+                                    onTap: () {
+                                      setState(() {
+                                        selectIndex = 4;
+                                      });
+                                      activityLevel = 4;
+                                    },
+                                    child: ActivityLevelButton(
+                                      title: 'Highly Active',
+                                      selectedId: selectIndex,
+                                      buttonId: 4,
                                     ),
                                   ),
                                   GestureDetector(
-                                    onTap: () => activityLevel = 5,
-                                    child: const ActivityLevelButton(
-                                      'Extra Active',
+                                    onTap: () {
+                                      setState(() {
+                                        selectIndex = 5;
+                                      });
+                                      activityLevel = 5;
+                                    },
+                                    child: ActivityLevelButton(
+                                      title: 'Extra Active',
+                                      selectedId: selectIndex,
+                                      buttonId: 5,
                                     ),
                                   ),
                                 ]),
@@ -129,39 +168,63 @@ class _SignUpScreen5State extends State<SignUpScreen5> {
                               onChanged: (value) {
                                 setState(() => prospectivetargetweight = value);
                               }),
-                          Container(
-                            padding: const EdgeInsets.all(10),
-                            alignment: Alignment.centerRight,
-                            child: Consumer<SignUpViewModel>(
-                              builder: (context, viewmodel, _) =>
-                                  FloatingActionButton(
-                                      onPressed: () async {
-                                        userInfo['activitylevel'] =
-                                            activityLevel;
-                                        userInfo['targetweight'] =
-                                            prospectivetargetweight;
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Center(
+                                    child: Text('Already have an Account?'),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 15.0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: const [
+                                        SignUpWith(icon: Icons.login),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                margin: const EdgeInsets.only(left: 30),
+                                padding: const EdgeInsets.all(10),
+                                alignment: Alignment.centerRight,
+                                child: Consumer<SignUpViewModel>(
+                                  builder: (context, viewmodel, _) =>
+                                      FloatingActionButton(
+                                          onPressed: () async {
+                                            userInfo['activitylevel'] =
+                                                activityLevel;
+                                            userInfo['targetweight'] =
+                                                prospectivetargetweight;
 
-                                        await viewmodel.addUser(User(
-                                          fullname: userInfo['fullname'],
-                                          username: userInfo['username'],
-                                          password: userInfo['password'],
-                                          gender: userInfo['gender'],
-                                          age: userInfo['age'],
-                                          height: userInfo['height'],
-                                          weight: userInfo['weight'],
-                                          targetweight:
-                                              userInfo['targetweight'],
-                                          activitylevel:
-                                              userInfo['activitylevel'],
-                                        ));
+                                            await viewmodel.addUser(User(
+                                              fullname: userInfo['fullname'],
+                                              username: userInfo['username'],
+                                              password: userInfo['password'],
+                                              gender: userInfo['gender'],
+                                              age: userInfo['age'],
+                                              height: userInfo['height'],
+                                              weight: userInfo['weight'],
+                                              targetweight:
+                                                  userInfo['targetweight'],
+                                              activitylevel:
+                                                  userInfo['activitylevel'],
+                                            ));
 
-                                        Navigator.pushNamedAndRemoveUntil(
-                                            context,
-                                            LoginScreen.routeName,
-                                            (route) => false);
-                                      },
-                                      child: const Icon(Icons.done)),
-                            ),
+                                            Navigator.pushNamedAndRemoveUntil(
+                                                context,
+                                                LoginScreen.routeName,
+                                                (route) => false);
+                                          },
+                                          child: const Icon(Icons.done)),
+                                ),
+                              ),
+                            ],
                           )
                         ],
                       ),

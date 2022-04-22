@@ -3,9 +3,13 @@ import 'package:stetfit/models/user.dart';
 
 class ActivityLevelButton extends StatelessWidget {
   final String? title;
+
+  final int? buttonId;
+  final int? selectedId;
+
   // final ActivityLevel? activityLevel;
 
-  const ActivityLevelButton(this.title);
+  const ActivityLevelButton({this.title, this.buttonId, this.selectedId});
   // ActivityLevelButton(this.title,this.activityLevel);
 
   // void selectCatg(BuildContext ctx) {
@@ -29,14 +33,26 @@ class ActivityLevelButton extends StatelessWidget {
           // textAlign: TextAlign.center,
         ),
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Theme.of(context).primaryColor.withOpacity(0.7),
-                Theme.of(context).primaryColor,
-              ],
-              begin: Alignment.topRight,
-              end: Alignment.bottomRight,
-            ),
+            gradient: selectedId == buttonId
+                ? LinearGradient(
+                    colors: [
+                      Theme.of(context).primaryColor.withOpacity(0.7),
+                      Theme.of(context).primaryColor,
+                    ],
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomRight,
+                  )
+                : const LinearGradient(
+                    colors: [
+                      Colors.white,
+                      Colors.white,
+                      // Theme.of(context).primaryColor.withOpacity(0.7),
+                      // Theme.of(context).primaryColor,
+                    ],
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomRight,
+                  ),
+            border: Border.all(color: Colors.black),
             borderRadius: BorderRadius.circular(15)),
       ),
     );

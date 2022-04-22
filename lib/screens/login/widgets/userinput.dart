@@ -4,13 +4,15 @@ class UserInput extends StatelessWidget {
   final TextEditingController? userInput;
   final String? hintTitle;
   final TextInputType? keyboardType;
+  final bool? password;
 
-  const UserInput({
-    Key? key,
-    required this.keyboardType,
-    required this.hintTitle,
-    required this.userInput,
-  }) : super(key: key);
+  const UserInput(
+      {Key? key,
+      this.hintTitle,
+      this.keyboardType,
+      this.userInput,
+      this.password})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,16 +25,15 @@ class UserInput extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(left: 25.0, top: 15, right: 25),
         child: TextField(
+          obscureText: password!,
           controller: userInput,
           autocorrect: false,
           enableSuggestions: false,
           autofocus: false,
           decoration: InputDecoration.collapsed(
             hintText: hintTitle,
-            hintStyle: const TextStyle(
-                fontSize: 18,
-                color: Colors.white70,
-                fontStyle: FontStyle.italic),
+            hintStyle:
+                Theme.of(context).textTheme.headline6?.copyWith(fontSize: 18),
           ),
           keyboardType: keyboardType,
         ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stetfit/screens/homescreen/Dashboard.dart';
+import 'package:stetfit/screens/homescreen/MainDashboard.dart';
 import 'package:stetfit/screens/login/login_view.dart';
 import 'package:stetfit/screens/signup/signup_view.dart';
 import 'package:stetfit/screens/signup/signup_view2.dart';

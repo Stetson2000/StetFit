@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:stetfit/screens/login/login_view.dart';
 import 'package:stetfit/screens/signup/signup_view.dart';
 
-class Login extends StatelessWidget {
+class SignUp extends StatelessWidget {
   final IconData? icon;
 
-  const Login({
+  const SignUp({
     Key? key,
     required this.icon,
   }) : super(key: key);
@@ -22,9 +23,12 @@ class Login extends StatelessWidget {
         children: [
           Icon(icon, size: 24),
           TextButton(
-              onPressed: () => Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => SignUpScreen())),
-              child: const Text('Login')),
+              onPressed: () => Navigator.pushNamedAndRemoveUntil(
+                  context, SignUpScreen.routeName, (route) => false),
+              child: const Text(
+                'Sign Up',
+                style: TextStyle(color: Color.fromRGBO(246, 197, 190, 1)),
+              )),
         ],
       ),
     );

@@ -12,7 +12,7 @@ import 'package:stetfit/screens/signup/signup_view4.dart';
 import 'package:stetfit/screens/signup/signup_view5.dart';
 import 'package:stetfit/screens/signup/signup_viewmodel.dart';
 
-import 'screens/homescreen/Dashboard.dart';
+import 'screens/homescreen/MainDashboard.dart';
 
 void main() {
   runApp(const MyApp());

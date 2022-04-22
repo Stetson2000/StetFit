@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:stetfit/screens/signup/signup_view4.dart';
 
+import 'widgets/signupwith.dart';
+
 class SignUpScreen3 extends StatefulWidget {
   const SignUpScreen3({Key? key}) : super(key: key);
 
@@ -89,7 +91,6 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
                                 onPressed: () {
                                   userInfo['age'] = prospectiveuserage;
 
-                                  
                                   Navigator.pushNamed(
                                     context,
                                     SignUpScreen4.routeName,
@@ -98,19 +99,18 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
                                 },
                                 child: const Icon(Icons.arrow_forward)),
                           ),
-                          const SizedBox(height: 10),
-                          const SizedBox(height: 20),
+                          const Center(
+                            child: Text('Already have an Account?'),
+                          ),
                           Padding(
                             padding: const EdgeInsets.only(top: 25.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: const [
-                                // SignUpWith(icon: Icons.add),
-                                // SignUpWith(icon: Icons.book_online),
+                                SignUpWith(icon: Icons.login),
                               ],
                             ),
                           ),
-                          const Divider(thickness: 0, color: Colors.white),
                           /*
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,

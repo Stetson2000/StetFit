@@ -13,7 +13,7 @@ class MainDashboardScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("${user?.id}"),
+        title: Text("${user?.fullname}"),
       ),
       body: null,
     );

@@ -149,41 +149,23 @@ class SignUpScreen2 extends StatelessWidget {
                                       : 'Female';
 
                                   Navigator.pushNamed(
-                                    context, SignUpScreen3.routeName,
-                                    arguments: userInfo
-                                  );
+                                      context, SignUpScreen3.routeName,
+                                      arguments: userInfo);
                                 },
                                 child: const Icon(Icons.arrow_forward)),
                           ),
-                          const SizedBox(height: 10),
-
-                          const SizedBox(height: 20),
+                          const Center(
+                            child: Text('Already have an Account?'),
+                          ),
                           Padding(
                             padding: const EdgeInsets.only(top: 25.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: const [
-                                SignUpWith(icon: Icons.add),
-                                SignUpWith(icon: Icons.book_online),
+                                SignUpWith(icon: Icons.login),
                               ],
                             ),
                           ),
-                          const Divider(thickness: 0, color: Colors.white),
-                          /*
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          //Text('Don\'t have an account yet ? ', style: TextStyle(color: Colors.grey, fontStyle: FontStyle.italic),),
-                          TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Sign Up',
-                            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-                          ),
-                        ),
-                        ],
-                      ),
-                        */
                         ],
                       ),
                     ),

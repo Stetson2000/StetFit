@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:stetfit/screens/signup/signup_view5.dart';
 
+import 'widgets/signupwith.dart';
+
 class SignUpScreen4 extends StatefulWidget {
   const SignUpScreen4({Key? key}) : super(key: key);
 
@@ -81,7 +83,7 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
                               onChanged: (value) {
                                 setState(() => prospectiveuserheight = value);
                               }),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 2),
                           Container(
                               margin:
                                   const EdgeInsets.only(left: 50, right: 50),
@@ -112,17 +114,44 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
                               onChanged: (value) {
                                 setState(() => prospectiveuserweight = value);
                               }),
-                          Container(
-                            padding: const EdgeInsets.all(10),
-                            alignment: Alignment.centerRight,
-                            child: FloatingActionButton(
-                                onPressed: () {
-                                  userInfo['weight'] = prospectiveuserweight;
-                                  userInfo['height'] = prospectiveuserheight;
-                                  Navigator.pushNamed(
-                                      context, SignUpScreen5.routeName,arguments: userInfo);
-                                },
-                                child: const Icon(Icons.arrow_forward)),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Center(
+                                    child: Text('Already have an Account?'),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 15.0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: const [
+                                        SignUpWith(icon: Icons.login),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                margin: const EdgeInsets.only(left: 35),
+                                padding: const EdgeInsets.all(10),
+                                alignment: Alignment.centerRight,
+                                child: FloatingActionButton(
+                                    onPressed: () {
+                                      userInfo['weight'] =
+                                          prospectiveuserweight;
+                                      userInfo['height'] =
+                                          prospectiveuserheight;
+                                      Navigator.pushNamed(
+                                          context, SignUpScreen5.routeName,
+                                          arguments: userInfo);
+                                    },
+                                    child: const Icon(Icons.arrow_forward)),
+                              ),
+                            ],
                           )
                         ],
                       ),
