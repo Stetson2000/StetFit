@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:stetfit/models/user.dart';
-import 'package:stetfit/screens/homescreen/MainDashboard.dart';
+import 'package:stetfit/screens/homescreen/homescreen_view.dart';
 import 'package:stetfit/screens/login/login_viewmodel.dart';
 
 import '../login/widgets/userinput.dart';
@@ -87,9 +86,14 @@ class LoginScreen extends StatelessWidget {
                             final user = await viewmodel.login(
                                 username: usernameController.text,
                                 password: passwordController.text);
-                            Navigator.pushNamed(
-                                context, MainDashboardScreen.routeName,
-                                arguments: user);
+
+                            Navigator.of(context).pushReplacementNamed(
+                              HomeScreen.routeName,
+                              arguments: user,
+                            );
+                            // Navigator.pushReplacementNamed(
+                            //     context, HomeScreen.routeName,
+                            //     arguments: user);
                           },
                           child: const Text(
                             'Login',

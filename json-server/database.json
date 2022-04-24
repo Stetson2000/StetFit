@@ -65,6 +65,50 @@
       "weight": 79,
       "activitylevel": 2,
       "targetweight": 63
+    },
+    {
+      "id": 7,
+      "fullname": "ali hamed",
+      "username": "ali123",
+      "password": "123",
+      "gender": "Female",
+      "age": 18,
+      "height": 160,
+      "weight": 60,
+      "activitylevel": 3,
+      "targetweight": 61
+    },
+    {
+      "id": 8,
+      "fullname": "sam",
+      "username": "huss",
+      "password": "ali",
+      "gender": "Male",
+      "age": 60,
+      "height": 162,
+      "weight": 150,
+      "activitylevel": 2,
+      "targetweight": 45
+    }
+  ],
+  "meals": [
+    {
+      "id": 1,
+      "title": "eggs",
+      "grade": "A",
+      "kcal": 120,
+      "protein": 6,
+      "carb": 2,
+      "fat": 1
+    },
+    {
+      "id": 2,
+      "title": "eggs",
+      "grade": "A",
+      "kcal": 120,
+      "protein": 6,
+      "carb": 2,
+      "fat": 1
     }
   ]
 }

@@ -147,6 +147,7 @@ class _SignUpScreen5State extends State<SignUpScreen5> {
                                       title: 'Extra Active',
                                       selectedId: selectIndex,
                                       buttonId: 5,
+                                  
                                     ),
                                   ),
                                 ]),
