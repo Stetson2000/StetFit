@@ -16,7 +16,8 @@
       "height": 160,
       "weight": 60,
       "activitylevel": 3,
-      "targetweight": 61
+      "targetweight": 61,
+      "meals": 1
     },
     {
       "id": 3,
@@ -76,7 +77,8 @@
       "height": 160,
       "weight": 60,
       "activitylevel": 3,
-      "targetweight": 61
+      "targetweight": 61,
+      "meals": []
     },
     {
       "id": 8,

@@ -8,7 +8,7 @@ class LoginViewModel with ChangeNotifier {
 
   Future<User?> login({String? username, String? password}) async {
     user = await service.authenicate(username: username, password: password);
-
+    notifyListeners();
     return user;
   }
 }

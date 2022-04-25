@@ -41,7 +41,9 @@ class Rest {
   // Send a PATCH request to update parts of an existing data in the REST server.
   static Future patch(String endpoint, {dynamic data}) async {
     final response = await http.patch(Uri.parse('$_baseUrl/$endpoint'),
-        headers: {'Content-Type': 'application/json'}, body: jsonEncode(data));
+        headers: {'Content-Type': 'application/json'}, body: jsonEncode({
+          'meals':data
+        }));
 
     if (response.statusCode == 200) {
       return jsonDecode(response.body);

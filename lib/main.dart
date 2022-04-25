@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:stetfit/controllers/user_controller.dart';
 import 'package:stetfit/providers/users.dart';
 import 'package:stetfit/router.dart' as router;
-import 'package:stetfit/screens/addmeal/addmeal_view.dart';
+import 'package:stetfit/screens/addmeal/meal_view.dart';
+// import 'package:stetfit/screens/addmeal/meal_viewmodel.dart';
 import 'package:stetfit/screens/login/login_view.dart';
 
 import 'package:stetfit/screens/login/login_viewmodel.dart';
@@ -14,6 +16,7 @@ import 'package:stetfit/screens/signup/signup_view4.dart';
 import 'package:stetfit/screens/signup/signup_view5.dart';
 import 'package:stetfit/screens/signup/signup_viewmodel.dart';
 import 'package:stetfit/services/searchmeal/searchmeal_services.dart';
+import 'package:stetfit/services/usercontroller/addmeal_services.dart';
 
 import 'screens/homescreen/homescreen_view.dart';
 
@@ -33,6 +36,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => LoginViewModel()),
         ChangeNotifierProvider(create: (context) => SignUpViewModel()),
         ChangeNotifierProvider(create: (context) => SearchMealViewModel()),
+        ChangeNotifierProvider(create: (context) => UserController()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
