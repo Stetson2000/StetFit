@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stetfit/screens/addmeal/addmeal_view.dart';
+import 'package:stetfit/screens/addmeal/addmealtype_view.dart';
 import 'package:stetfit/screens/login/login_view.dart';
 import '../login/login_view.dart';
 
@@ -17,7 +17,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int? selectedIndex = 0;
 
-  final List<Widget> _widgets = const [AddMeal(), AddMeal()];
+  final List<Widget> _widgets = const [AddMealType(), AddMealType()];
   @override
   Widget build(BuildContext context) {
     final User? user = ModalRoute.of(context)!.settings.arguments as User;

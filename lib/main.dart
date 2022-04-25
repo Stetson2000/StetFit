@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stetfit/providers/users.dart';
 import 'package:stetfit/router.dart' as router;
+import 'package:stetfit/screens/addmeal/addmeal_view.dart';
 import 'package:stetfit/screens/login/login_view.dart';
 
 import 'package:stetfit/screens/login/login_viewmodel.dart';
@@ -59,7 +60,8 @@ class MyApp extends StatelessWidget {
         // SignUpScreen3.routeName: (context) => SignUpScreen3(),
         // SignUpScreen4.routeName: (context) => SignUpScreen4(),
         // SignUpScreen5.routeName: (context) => SignUpScreen5(),
-        // MainDashboardScreen.routeName:(context)=>MainDashboardScreen(),
+        // HomeScreen.routeName:(context)=>HomeScreen(),
+        // AddMeal.routeName:(context)=>AddMeal(),
         // },
 
         initialRoute: LoginScreen.routeName,

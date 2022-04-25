@@ -4,6 +4,7 @@ import 'package:stetfit/services/searchmeal/searchmeal_services.dart';
 import '../../models/meal.dart';
 
 class SearchMealViewModel with ChangeNotifier {
+  Meal? meal;
   List<Meal?> meals = [];
   SearchMealService service = SearchMealService();
 
@@ -23,5 +24,17 @@ class SearchMealViewModel with ChangeNotifier {
 
     notifyListeners();
     return meals;
+  }
+
+  Future<Meal?> searchById(int? id) async {
+    meal = await service.searchMealbyId(id);
+
+    // for (var i = 0; i < entity?.length; i++) {
+    //   meals.add(Meal.fromJson(json[i]))  ;
+    // }
+    // return meals.add(entity)
+
+    notifyListeners();
+    return meal;
   }
 }

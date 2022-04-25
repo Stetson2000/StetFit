@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stetfit/models/meal.dart';
+import 'package:stetfit/screens/addmeal/addmeal_view.dart';
 import 'package:stetfit/screens/searchmeal/searchmeal_viewmodel.dart';
 
 class SearchMeal extends StatelessWidget {
@@ -69,6 +70,10 @@ class SearchMeal extends StatelessWidget {
                           borderRadius: BorderRadius.circular(15),
                         ),
                         child: ListTile(
+                            onTap: () => Navigator.pushNamed(
+                                context, AddMeal.routeName,
+                                arguments: meal?.id),
+                            // print("tapped"),
                             leading: Text(meal?.id.toString() ?? ""),
                             title: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

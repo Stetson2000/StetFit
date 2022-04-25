@@ -25,6 +25,18 @@ class SearchMealService extends Rest {
      
     return meals;
   }
+  Future<Meal?> searchMealbyId(int? id) async {
+
+   
+    final json = await Rest.get('meals?id=$id');
+    
+    if (json == null || json.length == 0) {
+      return null;
+    }
+   
+     
+    return Meal.fromJson(json[0]);
+  }
 
   // Future<Meal?> searchMealbyTitle(String? title) async {
 
