@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stetfit/models/user.dart';
 import 'package:stetfit/providers/users.dart';
+import 'package:stetfit/screens/signup/signup_viewmodel.dart';
 
 import '../signup/widgets/signupwith.dart';
 import '../signup/widgets/userinput.dart';
@@ -23,8 +24,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   final passwordcontroller = TextEditingController();
 
+
   @override
   Widget build(BuildContext context) {
+  SignUpViewModel signUpViewModel = context.watch<SignUpViewModel>();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -96,18 +99,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             alignment: Alignment.centerRight,
                             child: FloatingActionButton(
                                 onPressed: () async {
-                                  Map<String?, dynamic> prospectiveuserInfo = {
-                                    'fullname': fullnamecontroller.text,
-                                    'username': usernamecontroller.text,
-                                    'password': passwordcontroller.text,
-                                  };
+                                    signUpViewModel.addIndex("fullname", fullnamecontroller.text);
+                                    signUpViewModel.addIndex("username", usernamecontroller.text);
+                                    signUpViewModel.addIndex("password", passwordcontroller.text);
 
                                   // print(prospectiveuserInfo['fullname']);
                                   // print(prospectiveuserInfo['username']);
                                   // print(prospectiveuserInfo['password']);
                                   Navigator.pushNamed(
                                       context, SignUpScreen2.routeName,
-                                      arguments: prospectiveuserInfo);
+                                      );
                                 },
                                 child: const Icon(Icons.arrow_forward)),
                           ),

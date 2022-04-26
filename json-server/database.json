@@ -8,7 +8,7 @@
     },
     {
       "id": 2,
-      "fullname": "ali",
+      "fullname": "ali hamed",
       "username": "ali123",
       "password": "123",
       "gender": "Female",
@@ -17,7 +17,14 @@
       "weight": 60,
       "activitylevel": 3,
       "targetweight": 61,
-      "meals": 1
+      "meals": [
+        2,
+        1,
+        2,
+        2,
+        2,
+        2
+      ]
     },
     {
       "id": 3,
@@ -69,19 +76,6 @@
     },
     {
       "id": 7,
-      "fullname": "ali hamed",
-      "username": "ali123",
-      "password": "123",
-      "gender": "Female",
-      "age": 18,
-      "height": 160,
-      "weight": 60,
-      "activitylevel": 3,
-      "targetweight": 61,
-      "meals": []
-    },
-    {
-      "id": 8,
       "fullname": "sam",
       "username": "huss",
       "password": "ali",
@@ -91,6 +85,86 @@
       "weight": 150,
       "activitylevel": 2,
       "targetweight": 45
+    },
+    {
+      "id": 8,
+      "fullname": "khalid do5a",
+      "username": "do5a",
+      "password": "123",
+      "gender": "Female",
+      "age": 20,
+      "height": 160,
+      "weight": 60,
+      "activitylevel": 3,
+      "targetweight": 60
+    },
+    {
+      "id": 9,
+      "fullname": "marwan",
+      "username": "maro",
+      "password": "123",
+      "gender": "Female",
+      "age": 18,
+      "height": 160,
+      "weight": 60,
+      "activitylevel": 5,
+      "targetweight": 60
+    },
+    {
+      "id": 10,
+      "fullname": "hamed",
+      "username": "hamed12",
+      "password": "123",
+      "gender": "Female",
+      "age": 20,
+      "height": 160,
+      "weight": 60,
+      "activitylevel": 3,
+      "targetweight": 60
+    },
+    {
+      "id": 11,
+      "fullname": "khalid",
+      "username": "khalid12",
+      "password": "123",
+      "gender": "Female",
+      "age": 18,
+      "height": 160,
+      "weight": 60,
+      "activitylevel": 3,
+      "targetweight": 60
+    },
+    {
+      "id": 12,
+      "fullname": "samy",
+      "username": "samy12",
+      "password": "123",
+      "gender": "Female",
+      "age": 18,
+      "height": 160,
+      "weight": 60,
+      "activitylevel": 3,
+      "targetweight": 60,
+      "meals": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 13,
+      "fullname": "yasser",
+      "username": "yas12",
+      "password": "123",
+      "gender": "Female",
+      "age": 18,
+      "height": 160,
+      "weight": 60,
+      "activitylevel": 3,
+      "targetweight": 60,
+      "meals": [
+        1,
+        2
+      ]
     }
   ],
   "meals": [

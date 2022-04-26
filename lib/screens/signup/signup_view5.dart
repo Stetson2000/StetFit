@@ -27,8 +27,10 @@ class _SignUpScreen5State extends State<SignUpScreen5> {
 
   @override
   Widget build(BuildContext context) {
-    final Map<String?, dynamic> userInfo =
-        ModalRoute.of(context)!.settings.arguments as Map<String?, dynamic>;
+    // final Map<String?, dynamic> userInfo =
+    //     ModalRoute.of(context)!.settings.arguments as Map<String?, dynamic>;
+
+    SignUpViewModel signUpViewModel = context.watch<SignUpViewModel>();
 
     final size = MediaQuery.of(context).size;
     double height = size.height;
@@ -147,7 +149,6 @@ class _SignUpScreen5State extends State<SignUpScreen5> {
                                       title: 'Extra Active',
                                       selectedId: selectIndex,
                                       buttonId: 5,
-                                  
                                     ),
                                   ),
                                 ]),
@@ -194,36 +195,35 @@ class _SignUpScreen5State extends State<SignUpScreen5> {
                                 margin: const EdgeInsets.only(left: 30),
                                 padding: const EdgeInsets.all(10),
                                 alignment: Alignment.centerRight,
-                                child: Consumer<SignUpViewModel>(
-                                  builder: (context, viewmodel, _) =>
-                                      FloatingActionButton(
-                                          onPressed: () async {
-                                            userInfo['activitylevel'] =
-                                                activityLevel;
-                                            userInfo['targetweight'] =
-                                                prospectivetargetweight;
+                                child: FloatingActionButton(
+                                    onPressed: () async {
+                                      signUpViewModel.addIndex(
+                                          'activitylevel', activityLevel);
+                                      signUpViewModel.addIndex('targetweight',
+                                          prospectivetargetweight);
 
-                                            await viewmodel.addUser(User(
-                                              fullname: userInfo['fullname'],
-                                              username: userInfo['username'],
-                                              password: userInfo['password'],
-                                              gender: userInfo['gender'],
-                                              age: userInfo['age'],
-                                              height: userInfo['height'],
-                                              weight: userInfo['weight'],
-                                              targetweight:
-                                                  userInfo['targetweight'],
-                                              activitylevel:
-                                                  userInfo['activitylevel'],
-                                            ));
+                                      signUpViewModel.addUser();
 
-                                            Navigator.pushNamedAndRemoveUntil(
-                                                context,
-                                                LoginScreen.routeName,
-                                                (route) => false);
-                                          },
-                                          child: const Icon(Icons.done)),
-                                ),
+                                      // await viewmodel.addUser(User(
+                                      //   fullname: userInfo['fullname'],
+                                      //   username: userInfo['username'],
+                                      //   password: userInfo['password'],
+                                      //   gender: userInfo['gender'],
+                                      //   age: userInfo['age'],
+                                      //   height: userInfo['height'],
+                                      //   weight: userInfo['weight'],
+                                      //   targetweight:
+                                      //       userInfo['targetweight'],
+                                      //   activitylevel:
+                                      //       userInfo['activitylevel'],
+                                      // ));
+
+                                      Navigator.pushNamedAndRemoveUntil(
+                                          context,
+                                          LoginScreen.routeName,
+                                          (route) => false);
+                                    },
+                                    child: const Icon(Icons.done)),
                               ),
                             ],
                           )

@@ -42,6 +42,7 @@ class User with ChangeNotifier {
       this.fatTaken,
       this.meals});
 
+  setUsername(String full) => fullname = full;
   User.fromJson(Map<String, dynamic> json) {
     id = json['id']?.toInt();
     fullname = json['fullname']?.toString();
@@ -60,6 +61,8 @@ class User with ChangeNotifier {
         arr0.add(v.toInt());
       });
       meals = arr0;
+    } else if (json['meals'] == null) {
+      meals = [];
     }
   }
   Map<String, dynamic> toJson() => {
@@ -73,5 +76,6 @@ class User with ChangeNotifier {
         'weight': weight,
         'activitylevel': activitylevel,
         'targetweight': targetweight,
+        'meals': meals,
       };
 }

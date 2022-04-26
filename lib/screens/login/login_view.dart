@@ -13,7 +13,6 @@ class LoginScreen extends StatelessWidget {
 
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
-   
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +87,7 @@ class LoginScreen extends StatelessWidget {
                           userController.setUser(user);
                           Navigator.of(context).pushReplacementNamed(
                             HomeScreen.routeName,
-                            arguments: user,
+                            // arguments: user,
                           );
                           // Navigator.pushReplacementNamed(
                           //     context, HomeScreen.routeName,

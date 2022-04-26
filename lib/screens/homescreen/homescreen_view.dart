@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:stetfit/controllers/user_controller.dart';
 import 'package:stetfit/screens/addmeal/addmealtype_view.dart';
 import 'package:stetfit/screens/login/login_view.dart';
+import 'package:stetfit/screens/usermeals/usermeals_view.dart';
 import '../login/login_view.dart';
 
 import '../../models/user.dart';
@@ -17,10 +20,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int? selectedIndex = 0;
 
-  final List<Widget> _widgets = const [AddMealType(), AddMealType()];
+  final List<Widget> _widgets =  [UserMeals(),const  AddMealType()];
   @override
   Widget build(BuildContext context) {
-    final User? user = ModalRoute.of(context)!.settings.arguments as User;
+    // final User? user = ModalRoute.of(context)!.settings.arguments as User;
+    UserController userController = context.watch<UserController>();
+    final user = userController.user;
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,

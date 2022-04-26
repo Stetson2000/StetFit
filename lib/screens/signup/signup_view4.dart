@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:numberpicker/numberpicker.dart';
+import 'package:provider/provider.dart';
 import 'package:stetfit/screens/signup/signup_view5.dart';
+import 'package:stetfit/screens/signup/signup_viewmodel.dart';
 
 import 'widgets/signupwith.dart';
 
@@ -18,12 +20,16 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
   int prospectiveuserweight = 60;
   @override
   Widget build(BuildContext context) {
+    
+        SignUpViewModel signUpViewModel = context.watch<SignUpViewModel>();
+
+     
     final size = MediaQuery.of(context).size;
     double height = size.height;
     double width = size.width;
 
-    final Map<String?, dynamic> userInfo =
-        ModalRoute.of(context)!.settings.arguments as Map<String?, dynamic>;
+    // final Map<String?, dynamic> userInfo =
+    //     ModalRoute.of(context)!.settings.arguments as Map<String?, dynamic>;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -141,13 +147,13 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
                                 alignment: Alignment.centerRight,
                                 child: FloatingActionButton(
                                     onPressed: () {
-                                      userInfo['weight'] =
-                                          prospectiveuserweight;
-                                      userInfo['height'] =
-                                          prospectiveuserheight;
+
+                                      signUpViewModel.addIndex('weight', prospectiveuserweight);
+                                      signUpViewModel.addIndex('height', prospectiveuserheight);
+                                     
                                       Navigator.pushNamed(
                                           context, SignUpScreen5.routeName,
-                                          arguments: userInfo);
+                                          );
                                     },
                                     child: const Icon(Icons.arrow_forward)),
                               ),

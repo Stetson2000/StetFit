@@ -9,16 +9,26 @@ class UserController with ChangeNotifier {
   User? _user;
   UserControllerServices userControllerServices = UserControllerServices();
 
-  void setUser(user) => _user = user;
+  void setUser(user) {
+    _user = user;
+    notifyListeners();
+  }
 
+  void setUserName(String fullname) {
+    _user?.setUsername(fullname);
+    notifyListeners();
+  }
+
+  get user => _user;
 
 // addMeal({int ?mealId ,User ?user}){
 // //  var addMealToUser = await
 // }
 
-  updateUserMeal(int? mealID) async{
-       await userControllerServices.addMealToUser(userID: _user?.id,mealId: mealID);
-        notifyListeners();
-  } 
- 
+  updateUserMeal(int? mealID) async {
+    _user?.meals?.add(mealID);
+    await userControllerServices.addMealToUser(
+        userID: _user?.id, updatedMeals: _user?.meals);
+    notifyListeners();
+  }
 }

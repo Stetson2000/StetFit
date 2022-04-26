@@ -38,6 +38,22 @@ class SearchMealService extends Rest {
     return Meal.fromJson(json[0]);
   }
 
+  // Future<List<Meal?>> getUserMeals(List<Meal?> meals) async {
+
+  //   List<Meal?> meals = [] ;
+    // final json = await Rest.get('meals?id=$title');
+    
+    // if (json == null || json.length == 0) {
+    //   return meals;
+    // }
+    // for (var i = 0; i < json.length; i++) {
+    //   meals.add(Meal.fromJson(json[i]))  ;
+    // }  
+     
+    // return meals;
+  // }
+
+
   // Future<Meal?> searchMealbyTitle(String? title) async {
 
 
