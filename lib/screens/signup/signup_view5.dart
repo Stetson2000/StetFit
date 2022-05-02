@@ -204,20 +204,6 @@ class _SignUpScreen5State extends State<SignUpScreen5> {
 
                                       signUpViewModel.addUser();
 
-                                      // await viewmodel.addUser(User(
-                                      //   fullname: userInfo['fullname'],
-                                      //   username: userInfo['username'],
-                                      //   password: userInfo['password'],
-                                      //   gender: userInfo['gender'],
-                                      //   age: userInfo['age'],
-                                      //   height: userInfo['height'],
-                                      //   weight: userInfo['weight'],
-                                      //   targetweight:
-                                      //       userInfo['targetweight'],
-                                      //   activitylevel:
-                                      //       userInfo['activitylevel'],
-                                      // ));
-
                                       Navigator.pushNamedAndRemoveUntil(
                                           context,
                                           LoginScreen.routeName,

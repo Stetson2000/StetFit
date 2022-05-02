@@ -44,7 +44,7 @@ class User with ChangeNotifier {
 
   setUsername(String full) => fullname = full;
   User.fromJson(Map<String, dynamic> json) {
-    id = json['id']?.toInt();
+    id = json['id']?.toString();
     fullname = json['fullname']?.toString();
     username = json['username']?.toString();
     password = json['password']?.toString();

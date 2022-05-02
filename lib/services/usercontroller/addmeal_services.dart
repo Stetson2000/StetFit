@@ -17,21 +17,8 @@ class UserControllerServices extends Rest {
         data['meals'] = arr0;
       }
       return data;
-      // Map data = {
-      //   "meals":
-      // };
     }
 
     await Rest.patch('users/$userID', data: toJson());
-    // Future<User?> authenicate({String? username, String? password}) async {
-    //   final json = await Rest.get('users?username=$username&&password=$password');
-    //   if (json == null || json.length == 0) {
-    //     return null;
-    //   }
-    //   final user = User.fromJson(json[0]);
-    //   return user;
-    // }
-
-    // Future<>
   }
 }

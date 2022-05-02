@@ -2,12 +2,6 @@
   "users": [
     {
       "id": 1,
-      "name": "ahmed@opa",
-      "username": "ahmed@opa",
-      "password": "123"
-    },
-    {
-      "id": 2,
       "fullname": "ali hamed",
       "username": "ali123",
       "password": "123",
@@ -27,115 +21,7 @@
       ]
     },
     {
-      "id": 3,
-      "fullname": "omar",
-      "username": "omar123",
-      "password": "123",
-      "gender": "Female",
-      "age": 23,
-      "height": 167,
-      "weight": 62,
-      "activitylevel": 3,
-      "targetweight": 62
-    },
-    {
-      "id": 4,
-      "fullname": "am",
-      "username": "am",
-      "password": "123",
-      "gender": "Female",
-      "age": 18,
-      "height": 160,
-      "weight": 60,
-      "activitylevel": 5,
-      "targetweight": 60
-    },
-    {
-      "id": 5,
-      "fullname": "",
-      "username": "",
-      "password": "",
-      "gender": "Male",
-      "age": 18,
-      "height": 160,
-      "weight": 60,
-      "activitylevel": 5,
-      "targetweight": 60
-    },
-    {
-      "id": 6,
-      "fullname": "omar",
-      "username": "omar123",
-      "password": "123",
-      "gender": "Female",
-      "age": 29,
-      "height": 181,
-      "weight": 79,
-      "activitylevel": 2,
-      "targetweight": 63
-    },
-    {
-      "id": 7,
-      "fullname": "sam",
-      "username": "huss",
-      "password": "ali",
-      "gender": "Male",
-      "age": 60,
-      "height": 162,
-      "weight": 150,
-      "activitylevel": 2,
-      "targetweight": 45
-    },
-    {
-      "id": 8,
-      "fullname": "khalid do5a",
-      "username": "do5a",
-      "password": "123",
-      "gender": "Female",
-      "age": 20,
-      "height": 160,
-      "weight": 60,
-      "activitylevel": 3,
-      "targetweight": 60
-    },
-    {
-      "id": 9,
-      "fullname": "marwan",
-      "username": "maro",
-      "password": "123",
-      "gender": "Female",
-      "age": 18,
-      "height": 160,
-      "weight": 60,
-      "activitylevel": 5,
-      "targetweight": 60
-    },
-    {
-      "id": 10,
-      "fullname": "hamed",
-      "username": "hamed12",
-      "password": "123",
-      "gender": "Female",
-      "age": 20,
-      "height": 160,
-      "weight": 60,
-      "activitylevel": 3,
-      "targetweight": 60
-    },
-    {
-      "id": 11,
-      "fullname": "khalid",
-      "username": "khalid12",
-      "password": "123",
-      "gender": "Female",
-      "age": 18,
-      "height": 160,
-      "weight": 60,
-      "activitylevel": 3,
-      "targetweight": 60
-    },
-    {
-      "id": 12,
+      "id": 2,
       "fullname": "samy",
       "username": "samy12",
       "password": "123",
@@ -151,7 +37,7 @@
       ]
     },
     {
-      "id": 13,
+      "id": 3,
       "fullname": "yasser",
       "username": "yas12",
       "password": "123",
@@ -159,6 +45,41 @@
       "age": 18,
       "height": 160,
       "weight": 60,
+      "activitylevel": 3,
+      "targetweight": 60,
+      "meals": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 4,
+      "fullname": "Test 1",
+      "username": "test12",
+      "password": "123",
+      "gender": "Female",
+      "age": 21,
+      "height": 165,
+      "weight": 65,
+      "activitylevel": 2,
+      "targetweight": 62,
+      "meals": [
+        1,
+        2,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 5,
+      "fullname": "niloy",
+      "username": "niloy12",
+      "password": "123",
+      "gender": "Female",
+      "age": 21,
+      "height": 170,
+      "weight": 65,
       "activitylevel": 3,
       "targetweight": 60,
       "meals": [

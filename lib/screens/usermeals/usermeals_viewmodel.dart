@@ -7,16 +7,15 @@ class UserMealsViewModel with ChangeNotifier {
   SearchMealService searchMealService = SearchMealService();
 
   void setMealsID(List<int?> mealsId) => _mealsId = mealsId;
-
+  
   Future<List<Meal?>> getUserMeal() async {
+  
     List<Meal?> meals = [];
-
     for (var i = 0; i < _mealsId.length; i++) {
       meals.add(await searchMealService.searchMealbyId(_mealsId[i]));
     }
-
     notifyListeners();
-
+  
     return meals;
   }
 }
