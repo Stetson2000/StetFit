@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:stetfit/screens/signup/signup_view3.dart';
+import 'package:stetfit/screens/signup/signup_viewmodel.dart';
 
 import './widgets/userinput.dart';
 import './widgets/signupwith.dart';
@@ -14,10 +16,11 @@ class SignUpScreen2 extends StatelessWidget {
   static const routeName = '/signup-screen2';
   @override
   Widget build(BuildContext context) {
+    SignUpViewModel signUpViewModel = context.watch<SignUpViewModel>();
     // if (ModalRoute.of(context)!.settings.arguments != null) {
     //   userInfo =
-    final Map<String?, dynamic> userInfo =
-        ModalRoute.of(context)!.settings.arguments as Map<String?, dynamic>;
+    // final Map<String?, dynamic> userInfo =
+    //     ModalRoute.of(context)!.settings.arguments as Map<String?, dynamic>;
 
     // final String? username =
     //     ModalRoute.of(context)!.settings.arguments as String;
@@ -144,46 +147,31 @@ class SignUpScreen2 extends StatelessWidget {
                             alignment: Alignment.centerRight,
                             child: FloatingActionButton(
                                 onPressed: () {
-                                  userInfo['gender'] = (gender == Gender.Male)
-                                      ? 'Male'
-                                      : 'Female';
+                                  signUpViewModel.addIndex(
+                                      'gender',
+                                      (gender == Gender.Male)
+                                          ? 'Male'
+                                          : 'Female');
 
                                   Navigator.pushNamed(
-                                    context, SignUpScreen3.routeName,
-                                    arguments: userInfo
+                                    context,
+                                    SignUpScreen3.routeName,
                                   );
                                 },
                                 child: const Icon(Icons.arrow_forward)),
                           ),
-                          const SizedBox(height: 10),
-
-                          const SizedBox(height: 20),
+                          const Center(
+                            child: Text('Already have an Account?'),
+                          ),
                           Padding(
                             padding: const EdgeInsets.only(top: 25.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: const [
-                                SignUpWith(icon: Icons.add),
-                                SignUpWith(icon: Icons.book_online),
+                                SignUpWith(icon: Icons.login),
                               ],
                             ),
                           ),
-                          const Divider(thickness: 0, color: Colors.white),
-                          /*
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          //Text('Don\'t have an account yet ? ', style: TextStyle(color: Colors.grey, fontStyle: FontStyle.italic),),
-                          TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Sign Up',
-                            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-                          ),
-                        ),
-                        ],
-                      ),
-                        */
                         ],
                       ),
                     ),

@@ -21,10 +21,13 @@ class SignUpWith extends StatelessWidget {
           Icon(icon, size: 24),
           TextButton(
               onPressed: () {
-                Navigator.of(context)
-                    .pushNamed(LoginScreen.routeName, arguments: icon);
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                    LoginScreen.routeName, (route) => false);
               },
-              child: const Text('Sign in')),
+              child: Text(
+                'Login',
+                style: TextStyle(color: Theme.of(context).primaryColor),
+              )),
         ],
       ),
     );

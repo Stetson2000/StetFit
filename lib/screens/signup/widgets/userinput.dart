@@ -4,12 +4,15 @@ class UserInput extends StatelessWidget {
   final TextEditingController? userInput;
   final String? hintTitle;
   final TextInputType? keyboardType;
+  final bool? password;
+
 
   const UserInput({
     Key? key,
     this.hintTitle,
     this.keyboardType,
     this.userInput,
+    this.password
   }) : super(key: key);
 
   @override
@@ -23,6 +26,7 @@ class UserInput extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(left: 25.0, top: 15, right: 25),
         child: TextField(
+          obscureText: password!,
           controller: userInput,
           autocorrect: false,
           enableSuggestions: false,

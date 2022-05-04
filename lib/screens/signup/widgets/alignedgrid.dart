@@ -22,15 +22,16 @@ class AlignedGrid extends StatelessWidget {
           runSpacing: runSpacing,
           spacing: spacing,
           alignment: WrapAlignment.center,
-          children: const [
-            ActivityLevelButton('Sedentary', ),
-            ActivityLevelButton(
-                'Lightly Active', ),
-            ActivityLevelButton(
-                'Moderately Active', ),
-            ActivityLevelButton('Highly Active', ),
-            ActivityLevelButton('Extra Active', ),
-          ]),
+          // children: const [
+          //   ActivityLevelButton(title: 'Sedentary', ),
+          //   ActivityLevelButton(
+          //       'Lightly Active', ),
+          //   ActivityLevelButton(
+          //       'Moderately Active', ),
+          //   ActivityLevelButton('Highly Active', ),
+          //   ActivityLevelButton('Extra Active', ),
+          // ]
+          ),
     );
   }
 }

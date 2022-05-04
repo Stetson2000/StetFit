@@ -7,7 +7,4 @@ class SignUpService extends Rest {
     print('done');
     return User.fromJson(json);
   }
-
-
-  
 }

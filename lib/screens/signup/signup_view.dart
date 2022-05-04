@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stetfit/models/user.dart';
 import 'package:stetfit/providers/users.dart';
+import 'package:stetfit/screens/signup/signup_viewmodel.dart';
 
 import '../signup/widgets/signupwith.dart';
 import '../signup/widgets/userinput.dart';
@@ -23,8 +24,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   final passwordcontroller = TextEditingController();
 
+
   @override
   Widget build(BuildContext context) {
+  SignUpViewModel signUpViewModel = context.watch<SignUpViewModel>();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -59,111 +62,69 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          const SizedBox(height: 45),
+                          const SizedBox(height: 20),
+                          Container(
+                            margin: const EdgeInsets.only(left: 15),
+                            child: Text('Register Now !',
+                                textAlign: TextAlign.left,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline6
+                                    ?.copyWith(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold)),
+                          ),
+                          const SizedBox(height: 15),
                           UserInput(
                             userInput: fullnamecontroller,
                             hintTitle: 'Full Name',
                             keyboardType: TextInputType.name,
+                            password: false,
                           ),
                           UserInput(
                             userInput: usernamecontroller,
                             hintTitle: 'Username',
                             keyboardType: TextInputType.emailAddress,
+                            password: false,
                           ),
                           UserInput(
                             userInput: passwordcontroller,
                             hintTitle: 'Password',
                             keyboardType: TextInputType.visiblePassword,
+                            password: true,
                           ),
-
-                          // Container(
-                          //   height: 55,
-                          //   // for an exact replicate, remove the padding.
-                          //   // pour une réplique exact, enlever le padding.
-                          //   padding: const EdgeInsets.only(
-                          //       top: 5, left: 70, right: 70),
-                          //   child: ElevatedButton(
-                          //     style: ButtonStyle(
-                          //         backgroundColor: MaterialStateProperty.all(
-                          //             const Color.fromRGBO(246, 197, 190, 1))),
-                          //     // shape: RoundedRectangleBorder(
-                          //     //     borderRadius: BorderRadius.circular(25)),
-
-                          //     onPressed: () {
-                          //       print(usernamecontroller);
-                          //       print(passwordcontroller);
-                          //       // Provider.of<Users>(context, listen: false)
-                          //       //     .addUser(User(
-
-                          //       //         fullname: usernamecontroller.text,
-                          //       //         password: passwordcontroller.text,
-                          //       //         username: usernamecontroller.text));
-
-                          //       // Navigator.of(context).push(MaterialPageRoute(
-                          //       //     builder: (ctx) => SuccessfulScreen()));
-                          //     },
-                          //     child: const Text(
-                          //       'Sign up',
-                          //       style: TextStyle(
-                          //         fontSize: 20,
-                          //         fontWeight: FontWeight.w700,
-                          //         color: Colors.white,
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
                           const SizedBox(height: 10),
                           Container(
                             padding: const EdgeInsets.all(10),
                             alignment: Alignment.centerRight,
                             child: FloatingActionButton(
-                                onPressed: ()  async{
-                                  Map<String?, dynamic> prospectiveuserInfo = {
-                                    'fullname': fullnamecontroller.text,
-                                    'username': usernamecontroller.text,
-                                    'password': passwordcontroller.text,
-                                  };
+                                onPressed: () async {
+                                    signUpViewModel.addIndex("fullname", fullnamecontroller.text);
+                                    signUpViewModel.addIndex("username", usernamecontroller.text);
+                                    signUpViewModel.addIndex("password", passwordcontroller.text);
 
                                   // print(prospectiveuserInfo['fullname']);
                                   // print(prospectiveuserInfo['username']);
                                   // print(prospectiveuserInfo['password']);
-                                  Navigator.pushNamed(context,
-                                      SignUpScreen2.routeName,
-                                      arguments: prospectiveuserInfo);
+                                  Navigator.pushNamed(
+                                      context, SignUpScreen2.routeName,
+                                      );
                                 },
                                 child: const Icon(Icons.arrow_forward)),
                           ),
-                          const SizedBox(height: 2),
                           const Center(
-                            child: Text('Forgot password ?'),
+                            child: Text('Already have an Account?'),
                           ),
-                          const SizedBox(height: 2),
                           Padding(
                             padding: const EdgeInsets.only(top: 25.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: const [
-                                SignUpWith(icon: Icons.add),
-                                SignUpWith(icon: Icons.book_online),
+                                SignUpWith(icon: Icons.login),
                               ],
                             ),
                           ),
                           const Divider(thickness: 0, color: Colors.white),
-                          /*
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          //Text('Don\'t have an account yet ? ', style: TextStyle(color: Colors.grey, fontStyle: FontStyle.italic),),
-                          TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Sign Up',
-                            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-                          ),
-                        ),
-                        ],
-                      ),
-                        */
                         ],
                       ),
                     ),

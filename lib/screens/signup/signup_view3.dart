@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:numberpicker/numberpicker.dart';
+import 'package:provider/provider.dart';
 import 'package:stetfit/screens/signup/signup_view4.dart';
+import 'package:stetfit/screens/signup/signup_viewmodel.dart';
+
+import 'widgets/signupwith.dart';
 
 class SignUpScreen3 extends StatefulWidget {
   const SignUpScreen3({Key? key}) : super(key: key);
@@ -12,11 +16,13 @@ class SignUpScreen3 extends StatefulWidget {
 }
 
 class _SignUpScreen3State extends State<SignUpScreen3> {
-  int prospectiveuserage = 18;
+  int prospectiveUserAge = 18;
   @override
   Widget build(BuildContext context) {
-    final Map<String?, dynamic> userInfo =
-        ModalRoute.of(context)!.settings.arguments as Map<String?, dynamic>;
+    SignUpViewModel signUpViewModel = context.watch<SignUpViewModel>();
+
+    // final Map<String?, dynamic> userInfo =
+    //     ModalRoute.of(context)!.settings.arguments as Map<String?, dynamic>;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -68,11 +74,11 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
                               decoration: BoxDecoration(
                                   color: Colors.black12,
                                   borderRadius: BorderRadius.circular(15)),
-                              value: prospectiveuserage,
+                              value: prospectiveUserAge,
                               minValue: 15,
                               maxValue: 60,
                               onChanged: (value) {
-                                setState(() => prospectiveuserage = value);
+                                setState(() => prospectiveUserAge = value);
                               }),
                           const SizedBox(height: 10),
                           Container(
@@ -87,30 +93,28 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
                             alignment: Alignment.centerRight,
                             child: FloatingActionButton(
                                 onPressed: () {
-                                  userInfo['age'] = prospectiveuserage;
+                                  signUpViewModel.addIndex(
+                                      'age', prospectiveUserAge);
 
-                                  
                                   Navigator.pushNamed(
                                     context,
                                     SignUpScreen4.routeName,
-                                    arguments: userInfo,
                                   );
                                 },
                                 child: const Icon(Icons.arrow_forward)),
                           ),
-                          const SizedBox(height: 10),
-                          const SizedBox(height: 20),
+                          const Center(
+                            child: Text('Already have an Account?'),
+                          ),
                           Padding(
                             padding: const EdgeInsets.only(top: 25.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: const [
-                                // SignUpWith(icon: Icons.add),
-                                // SignUpWith(icon: Icons.book_online),
+                                SignUpWith(icon: Icons.login),
                               ],
                             ),
                           ),
-                          const Divider(thickness: 0, color: Colors.white),
                           /*
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,

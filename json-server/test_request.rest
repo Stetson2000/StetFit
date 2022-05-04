@@ -7,6 +7,8 @@
 ### Purpose   : To simulate the authentication process. 
 GET {{baseUrl}}/users
 
+###  
+GET {{baseUrl}}/meals
 
 
 ###

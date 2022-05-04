@@ -1,62 +1,71 @@
 import 'package:flutter/cupertino.dart';
 
 enum ActivityLevel {
- sedentary,
- lightlyactivity, 
- moderateactivity,
- highactivity, 
- extractive, 
+  sedentary,
+  lightlyactivity,
+  moderateactivity,
+  highactivity,
+  extractive,
 }
 
-
 class User with ChangeNotifier {
-  final dynamic id;
-  final String? fullname;
-  final String? username;
-  final String? password;
-  final String? gender;
-  final int? age;
-  final int? height;
-  final int? weight;
-  final int? targetweight;
-  final int? activitylevel;
-  final int? calorieTaken;
-  final int? protienTaken;
-  final int? carbTaken;
-  final int? fatTaken;
+  dynamic id;
+  String? fullname;
+  String? username;
+  String? password;
+  String? gender;
+  int? age;
+  int? height;
+  int? weight;
+  int? targetweight;
+  int? activitylevel;
+  int? calorieTaken;
+  int? protienTaken;
+  int? carbTaken;
+  int? fatTaken;
+  List<dynamic>? meals;
 
-  User({
-    this.id,
-    required this.fullname,
-    required this.username,
-    required this.password,
-    required this.gender,
-    required this.age,
-    required this.height,
-    required this.weight,
-    required this.targetweight,
-    required this.activitylevel,
-    this.calorieTaken,
-    this.protienTaken,
-    this.carbTaken,
-    this.fatTaken,
-  });
+  User(
+      {this.id,
+      required this.fullname,
+      required this.username,
+      required this.password,
+      required this.gender,
+      required this.age,
+      required this.height,
+      required this.weight,
+      required this.targetweight,
+      required this.activitylevel,
+      this.calorieTaken,
+      this.protienTaken,
+      this.carbTaken,
+      this.fatTaken,
+      this.meals});
 
-  User.fromJson(Map<String, dynamic> json)
-      : this(
-          id: json['id'],
-          fullname: json['fullname'],
-          username: json['username'],
-          password: json['password'],
-          gender: json['gender'],
-          age: json['age'],
-          height: json['height'],
-          weight: json['weight'],
-          activitylevel: json['activitylevel'],
-          targetweight: json['targetweight'],
-        );
+  setUsername(String full) => fullname = full;
+  User.fromJson(Map<String, dynamic> json) {
+    id = json['id']?.toString();
+    fullname = json['fullname']?.toString();
+    username = json['username']?.toString();
+    password = json['password']?.toString();
+    gender = json['gender']?.toString();
+    age = json['age']?.toInt();
+    height = json['height']?.toInt();
+    weight = json['weight']?.toInt();
+    activitylevel = json['activitylevel']?.toInt();
+    targetweight = json['targetweight']?.toInt();
+    if (json['meals'] != null) {
+      final v = json['meals'];
+      final arr0 = <dynamic>[];
+      v.forEach((v) {
+        arr0.add(v);
+      });
+      meals = arr0;
+    } else if (json['meals'] == null) {
+      meals = [];
+    }
+  }
   Map<String, dynamic> toJson() => {
-        'id': id,
         'fullname': fullname,
         'username': username,
         'password': password,
@@ -66,5 +75,6 @@ class User with ChangeNotifier {
         'weight': weight,
         'activitylevel': activitylevel,
         'targetweight': targetweight,
+        'meals': meals,
       };
 }

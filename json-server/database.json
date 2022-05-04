@@ -2,89 +2,110 @@
   "users": [
     {
       "id": 1,
-      "username": "a8a@gmail.com",
-      "password": "ali"
+      "fullname": "ali hamed",
+      "username": "ali123",
+      "password": "123",
+      "gender": "Female",
+      "age": 22,
+      "height": 160,
+      "weight": 60,
+      "activitylevel": 3,
+      "targetweight": 61,
+      "meals": [
+        2,
+        1,
+        2,
+        2,
+        2,
+        2
+      ]
     },
     {
       "id": 2,
-      "username": "ali123",
-      "password": "123"
+      "fullname": "samy",
+      "username": "samy12",
+      "password": "123",
+      "gender": "Female",
+      "age": 18,
+      "height": 160,
+      "weight": 60,
+      "activitylevel": 3,
+      "targetweight": 60,
+      "meals": [
+        1,
+        2
+      ]
     },
     {
       "id": 3,
-      "username": "a7a",
-      "password": "123"
-    },
-    {
-      "username": "email@email.com",
+      "fullname": "yasser",
+      "username": "yas12",
       "password": "123",
-      "id": 4
+      "gender": "Female",
+      "age": 18,
+      "height": 160,
+      "weight": 60,
+      "activitylevel": 3,
+      "targetweight": 60,
+      "meals": [
+        1,
+        2
+      ]
     },
     {
-      "id": "2022-04-18 11:16:15.642510",
-      "name": "ali",
-      "username": "ali",
-      "password": "123"
-    },
-    {
-      "id": "2022-04-18 11:23:34.317618",
-      "name": "ali",
-      "username": "ali",
-      "password": "1234"
-    },
-    {
-      "id": "2022-04-18 12:52:09.965560",
-      "name": "ali@gmail.com",
-      "username": "ali@gmail.com",
-      "password": "123"
-    },
-    {
-      "id": "2022-04-19 05:28:36.840704",
-      "name": "ellol@gmail.com",
-      "username": "ellol@gmail.com",
-      "password": "1122334455"
+      "id": 4,
+      "fullname": "Test 1",
+      "username": "test12",
+      "password": "123",
+      "gender": "Female",
+      "age": 21,
+      "height": 165,
+      "weight": 65,
+      "activitylevel": 2,
+      "targetweight": 62,
+      "meals": [
+        1,
+        2,
+        2,
+        1,
+        1
+      ]
     },
     {
       "id": 5,
-      "name": "ahmed@opa",
-      "username": "ahmed@opa",
-      "password": "123"
-    },
-    {
-      "id": 6,
-      "name": "ahmed@opa",
-      "username": "ahmed@opa",
-      "password": "123"
-    },
-    {
-      "id": 7,
-      "name": "",
-      "username": "",
-      "password": ""
-    },
-    {
-      "id": 8,
-      "fullname": "ali",
-      "username": "ali123",
+      "fullname": "niloy",
+      "username": "niloy12",
       "password": "123",
       "gender": "Female",
-      "age": 22,
-      "height": 160,
-      "weight": 60,
+      "age": 21,
+      "height": 170,
+      "weight": 65,
       "activitylevel": 3,
-      "targetweight": 61
+      "targetweight": 60,
+      "meals": [
+        1,
+        2
+      ]
+    }
+  ],
+  "meals": [
+    {
+      "id": 1,
+      "title": "eggs",
+      "grade": "A",
+      "kcal": 120,
+      "protein": 6,
+      "carb": 2,
+      "fat": 1
     },
     {
-      "id": 9,
-      "fullname": "ali",
-      "username": "ali123",
-      "password": "123",
-      "gender": "Female",
-      "age": 22,
-      "height": 160,
-      "weight": 60,
-      "activitylevel": 3,
-      "targetweight": 61
+      "id": 2,
+      "title": "eggs",
+      "grade": "A",
+      "kcal": 120,
+      "protein": 6,
+      "carb": 2,
+      "fat": 1
     }
   ]
 }
