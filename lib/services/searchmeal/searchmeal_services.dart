@@ -12,60 +12,55 @@ class SearchMealService extends Rest {
   // }
 
   Future<List<Meal?>> searchMealbyTitle(String? title) async {
-
-    List<Meal?> meals = [] ;
+    List<Meal?> meals = [];
     final json = await Rest.get('meals?title=$title');
-    
+
     if (json == null || json.length == 0) {
       return meals;
     }
     for (var i = 0; i < json.length; i++) {
-      meals.add(Meal.fromJson(json[i]))  ;
-    }  
-     
+      meals.add(Meal.fromJson(json[i]));
+    }
+
     return meals;
   }
-  Future<Meal?> searchMealbyId(int? id) async {
 
-   
-    final json = await Rest.get('meals?id=$id');
-    
+  Future<Meal?> searchMealbyId(String? id) async {
+    final json = await Rest.get('meals/$id');
+
     if (json == null || json.length == 0) {
       return null;
     }
-   
-     
-    return Meal.fromJson(json[0]);
+
+    return Meal.fromJson(json);
   }
 
   // Future<List<Meal?>> getUserMeals(List<Meal?> meals) async {
 
   //   List<Meal?> meals = [] ;
-    // final json = await Rest.get('meals?id=$title');
-    
-    // if (json == null || json.length == 0) {
-    //   return meals;
-    // }
-    // for (var i = 0; i < json.length; i++) {
-    //   meals.add(Meal.fromJson(json[i]))  ;
-    // }  
-     
-    // return meals;
+  // final json = await Rest.get('meals?id=$title');
+
+  // if (json == null || json.length == 0) {
+  //   return meals;
+  // }
+  // for (var i = 0; i < json.length; i++) {
+  //   meals.add(Meal.fromJson(json[i]))  ;
   // }
 
+  // return meals;
+  // }
 
   // Future<Meal?> searchMealbyTitle(String? title) async {
 
-
   //   final json = await Rest.get('meals?title=$title');
-    
+
   //   if (json == null || json.length == 0) {
   //     return null;
   //   }
   //   // for (var i = 0; i < json.length; i++) {
   //   //   meals.add(Meal.fromJson(json[i]))  ;
-  //   // }  
-     
+  //   // }
+
   //   return Meal.fromJson(json);
   // }
 }

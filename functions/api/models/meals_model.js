@@ -1,32 +1,13 @@
-const database = require("../database");
+const Model = require('./model')
 
 // Here, we are implementing the class with Singleton design pattern
 
-class MealModel {
+class MealModel extends Model {
     constructor() {
-        if (this.instance) return this.instance;
-        MealModel.instance = this;
-    }
-
-    get() {
-        return database.getList("meals");
-    }
-
-    getById(id) {
-        return database.get("meals", id);
-    }
-
-    create(todo) {
-        return database.create("meals", todo);
-    }
-
-    delete(id) {
-        return database.delete("meals", id);
-    }
-
-    update(id, todo) {
-        return database.set("meals", id, todo);
+        super('meals')
+        if (this.instance) return this.instance
+        MealModel.instance = this
     }
 }
 
-module.exports = new MealModel();
+module.exports = new MealModel()

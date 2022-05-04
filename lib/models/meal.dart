@@ -60,7 +60,7 @@ class Meal {
 
   Meal.fromJson(Map<String, dynamic> json)
       : this(
-          id: json['id']?.toInt(),
+          id: json['id']?.toString(),
           title: json['title']?.toString(),
           grade: json['grade']?.toString(),
           kcal: json['kcal']?.toInt(),

@@ -4,7 +4,7 @@ import '../rest.dart';
 import '../../models/meal.dart';
 
 class UserControllerServices extends Rest {
-  Future<void> addMealToUser({dynamic updatedMeals, int? userID}) async {
+  Future<void> addMealToUser({dynamic updatedMeals, String? userID}) async {
     Map<String, dynamic> toJson() {
 
       final data = <String, dynamic>{};

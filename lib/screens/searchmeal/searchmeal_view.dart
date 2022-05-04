@@ -61,36 +61,71 @@ class SearchMeal extends StatelessWidget {
                 ],
               ),
             ),
-            Column(
-                children: meals
-                    .map((meal) => Container(
-                        margin: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: ListTile(
-                            onTap: () => Navigator.pushNamed(
-                                context, MealScreen.routeName,
-                                arguments: meal),
-                            // print("tapped"),
-                            leading: Text(meal?.id.toString() ?? ""),
-                            title: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  meal?.title ?? "",
-                                ),
-                                Text(
-                                  meal?.kcal.toString() ?? " ",
-                                ),
-                                Text(
-                                  meal?.grade ?? " ",
-                                ),
-                              ],
-                            ))))
-                    .toList()),
+
+            Container(
+              height: 450,
+              child: ListView.builder(
+                itemBuilder: ((context, index) => Container(
+                    margin: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: ListTile(
+                        onTap: () => Navigator.pushNamed(
+                            context, MealScreen.routeName,
+                            arguments: meals[index]),
+                        // print("tapped"),
+                        leading: Text(" ${(index + 1)} "),
+                        title: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              meals[index]?.title ?? "",
+                            ),
+                            Text(
+                              meals[index]?.kcal.toString() ?? " ",
+                            ),
+                            Text(
+                              meals[index]?.grade ?? " ",
+                            ),
+                          ],
+                        )))),
+                itemCount: meals.length,
+              ),
+            )
+
+            // Column(
+            //     children: meals
+            //         .map((meal) => Container(
+            //             margin: const EdgeInsets.all(10),
+            //             decoration: BoxDecoration(
+            //               border: Border.all(color: Colors.black),
+            //               borderRadius: BorderRadius.circular(15),
+            //             ),
+            //             child: ListTile(
+            //                 onTap: () => Navigator.pushNamed(
+            //                     context, MealScreen.routeName,
+            //                     arguments: meal),
+            //                 // print("tapped"),
+            //                 leading: Text(meal?.id.toString() ?? ""),
+            //                 title: Row(
+            //                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //                   crossAxisAlignment: CrossAxisAlignment.center,
+            //                   children: [
+            //                     Text(
+            //                       meal?.title ?? "",
+            //                     ),
+            //                     Text(
+            //                       meal?.kcal.toString() ?? " ",
+            //                     ),
+            //                     Text(
+            //                       meal?.grade ?? " ",
+            //                     ),
+            //                   ],
+            //                 ))))
+            //         .toList()),
           ],
         ),
       ),

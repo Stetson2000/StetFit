@@ -26,7 +26,7 @@ class SearchMealViewModel with ChangeNotifier {
     return meals;
   }
 
-  Future<Meal?> searchById(int? id) async {
+  Future<Meal?> searchById(String? id) async {
     meal = await service.searchMealbyId(id);
 
     // for (var i = 0; i < entity?.length; i++) {

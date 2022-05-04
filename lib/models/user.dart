@@ -23,7 +23,7 @@ class User with ChangeNotifier {
   int? protienTaken;
   int? carbTaken;
   int? fatTaken;
-  List<int?>? meals;
+  List<dynamic>? meals;
 
   User(
       {this.id,
@@ -56,9 +56,9 @@ class User with ChangeNotifier {
     targetweight = json['targetweight']?.toInt();
     if (json['meals'] != null) {
       final v = json['meals'];
-      final arr0 = <int>[];
+      final arr0 = <dynamic>[];
       v.forEach((v) {
-        arr0.add(v.toInt());
+        arr0.add(v);
       });
       meals = arr0;
     } else if (json['meals'] == null) {
@@ -66,7 +66,6 @@ class User with ChangeNotifier {
     }
   }
   Map<String, dynamic> toJson() => {
-        'id': id,
         'fullname': fullname,
         'username': username,
         'password': password,

@@ -25,7 +25,7 @@ class UserController with ChangeNotifier {
 // //  var addMealToUser = await
 // }
 
-  updateUserMeal(int? mealID) async {
+  updateUserMeal(dynamic mealID) async {
     _user?.meals?.add(mealID);
     await userControllerServices.addMealToUser(
         userID: _user?.id, updatedMeals: _user?.meals);

@@ -3,10 +3,10 @@ import 'package:stetfit/models/meal.dart';
 import 'package:stetfit/services/searchmeal/searchmeal_services.dart';
 
 class UserMealsViewModel with ChangeNotifier {
-  List<int?> _mealsId = [];
+  List<dynamic> _mealsId = [];
   SearchMealService searchMealService = SearchMealService();
 
-  void setMealsID(List<int?> mealsId) => _mealsId = mealsId;
+  void setMealsID(List<dynamic> mealsId) => _mealsId = mealsId;
   
   Future<List<Meal?>> getUserMeal() async {
   
