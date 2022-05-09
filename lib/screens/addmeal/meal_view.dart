@@ -44,7 +44,7 @@ class MealScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(meal?.title ?? " "),
+        title: Text(meal?.title?.toLowerCase() ?? " "),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -59,9 +59,9 @@ class MealScreen extends StatelessWidget {
               margin: const EdgeInsets.all(15),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(6),
-                child: Image.network(
-                  'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/carton_of_eggs-84d8eef.jpg?quality=90&resize=556,505',
-                  fit: BoxFit.cover,
+                child: Image.asset(
+                  'assets/images/${meal?.imageUrl?.toString()}',
+                  fit: BoxFit.fill,
                 ),
               ),
             ),

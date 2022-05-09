@@ -25,6 +25,19 @@ class SearchMealService extends Rest {
     return meals;
   }
 
+  Future<List<Meal?>> searchSuggestion(String? query) async {
+    final json = await Rest.get('meals');
+
+    final List meals = json;
+
+    return meals.map((json) => Meal.fromJson(json)).where((element) {
+      final nameLower = element.title?.toLowerCase();
+      final queryLower = query?.toLowerCase();
+
+      return nameLower!.contains('$query');
+    }).toList();
+  }
+
   Future<Meal?> searchMealbyId(String? id) async {
     final json = await Rest.get('meals/$id');
 

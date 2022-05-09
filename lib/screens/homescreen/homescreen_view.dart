@@ -20,7 +20,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int? selectedIndex = 0;
 
-  final List<Widget> _widgets =  [UserMeals(),const  AddMealType()];
+  final List<Widget> _widgets = [UserMeals(), const AddMealType()];
   @override
   Widget build(BuildContext context) {
     // final User? user = ModalRoute.of(context)!.settings.arguments as User;

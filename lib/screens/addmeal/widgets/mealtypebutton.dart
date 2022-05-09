@@ -1,6 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:stetfit/controllers/user_controller.dart';
+// import 'package:provider/provider.dart';
+// import 'package:stetfit/controllers/user_controller.dart';
 import 'package:stetfit/screens/searchmeal/searchmeal_view.dart';
 
 class MealTypeButton extends StatelessWidget {
@@ -13,14 +15,15 @@ class MealTypeButton extends StatelessWidget {
       : super(key: key);
   @override
   Widget build(BuildContext context) {
-    UserController userController = context.watch<UserController>();
+    // UserController userController = context.watch<UserController>();
     return InkWell(
       borderRadius: BorderRadius.circular(15),
       splashColor: Theme.of(context).primaryColor,
-      onTap: () {
-          userController.notifyListeners();
-        Navigator.pushNamed(context, SearchMeal.routeName);
-      },
+      // onTap: () {
+      // Timer(const Duration(seconds: 1), () {
+      //   Navigator.pushNamed(context, SearchMeal.routeName);
+      // });
+      // },
       child: Container(
         padding: const EdgeInsets.all(15),
         child: Text(
