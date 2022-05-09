@@ -8,6 +8,7 @@ import 'package:stetfit/screens/signup/signup_view2.dart';
 import 'package:stetfit/screens/signup/signup_view3.dart';
 import 'package:stetfit/screens/signup/signup_view4.dart';
 import 'package:stetfit/screens/signup/signup_view5.dart';
+import 'package:stetfit/screens/userdashboard/userdashboard_view.dart';
 
 Route<dynamic> createRoute(RouteSettings? settings) {
   // final args = settings!.arguments as Map<String?,dynamic>;
@@ -33,6 +34,9 @@ Route<dynamic> createRoute(RouteSettings? settings) {
     case HomeScreen.routeName:
       return MaterialPageRoute(
           builder: (context) => HomeScreen(), settings: settings);
+    case UserDashboard.routeName:
+      return MaterialPageRoute(
+          builder: (context) => UserDashboard(), settings: settings);
     case SearchMeal.routeName:
       return MaterialPageRoute(
           builder: (context) => SearchMeal(), settings: settings);

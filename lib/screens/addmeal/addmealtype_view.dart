@@ -1,5 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:stetfit/screens/addmeal/widgets/mealtypebutton.dart';
+
+import '../searchmeal/searchmeal_view.dart';
 
 class AddMealType extends StatefulWidget {
   const AddMealType({Key? key}) : super(key: key);
@@ -31,6 +35,10 @@ class _AddMealTypeState extends State<AddMealType> {
                                 setter(() {
                                   selectedid = 1;
                                 });
+                                Timer(const Duration(milliseconds: 500), () {
+                                  Navigator.pushNamed(
+                                      context, SearchMeal.routeName);
+                                });
                               },
                               child: MealTypeButton(
                                 title: "Breakfast",
@@ -39,9 +47,15 @@ class _AddMealTypeState extends State<AddMealType> {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () => setter(() {
-                                selectedid = 2;
-                              }),
+                              onTap: () {
+                                setter(() {
+                                  selectedid = 2;
+                                });
+                                Timer(const Duration(milliseconds: 500), () {
+                                  Navigator.pushNamed(
+                                      context, SearchMeal.routeName);
+                                });
+                              },
                               child: MealTypeButton(
                                 title: "Lunch",
                                 buttonId: 2,
@@ -49,9 +63,15 @@ class _AddMealTypeState extends State<AddMealType> {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () => setter(() {
-                                selectedid = 3;
-                              }),
+                              onTap: () {
+                                setter(() {
+                                  selectedid = 3;
+                                });
+                                Timer(const Duration(milliseconds: 500), () {
+                                  Navigator.pushNamed(
+                                      context, SearchMeal.routeName);
+                                });
+                              },
                               child: MealTypeButton(
                                 title: "Dinner",
                                 buttonId: 3,
@@ -59,9 +79,15 @@ class _AddMealTypeState extends State<AddMealType> {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () => setter(() {
-                                selectedid = 4;
-                              }),
+                              onTap: () {
+                                setter(() {
+                                  selectedid = 4;
+                                });
+                                Timer(const Duration(milliseconds: 500), () {
+                                  Navigator.pushNamed(
+                                      context, SearchMeal.routeName);
+                                });
+                              },
                               child: MealTypeButton(
                                 title: "Snack",
                                 buttonId: 4,
