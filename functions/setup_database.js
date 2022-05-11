@@ -73,7 +73,7 @@ async function setupDatabase(req, res, next) {
       protein: 13,
       carb: 56,
       fat: 4.3,
-      imageUrl: "White_Toast.jpg",
+      imageUrl: "White_Bread.jpg",
     },
     {
       title: "SPAGHETTI",

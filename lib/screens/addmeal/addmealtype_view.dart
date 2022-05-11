@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:stetfit/screens/addmeal/widgets/circlegradient.dart';
 import 'package:stetfit/screens/addmeal/widgets/mealtypebutton.dart';
 
 import '../searchmeal/searchmeal_view.dart';
@@ -105,13 +106,11 @@ class _AddMealTypeState extends State<AddMealType> {
                     ),
                   ));
         },
-        child: const CircleAvatar(
-            child: Icon(
-              Icons.add,
-              color: Colors.white,
-            ),
-            backgroundColor: Colors.amber,
-            radius: 100),
+        child: const CircleGradientIcon(
+          icon: Icons.add,
+          color: Colors.orange,
+          size: 200,
+        ),
       ),
     );
   }

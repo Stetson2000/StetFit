@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:stetfit/controllers/user_controller.dart';
 import 'package:stetfit/screens/addmeal/addmealtype_view.dart';
 import 'package:stetfit/screens/login/login_view.dart';
+import 'package:stetfit/screens/userdashboard/userdashboard_view.dart';
 import 'package:stetfit/screens/usermeals/usermeals_view.dart';
 import '../login/login_view.dart';
 
@@ -20,7 +21,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int? selectedIndex = 0;
 
-  final List<Widget> _widgets = [UserMeals(), const AddMealType()];
+  final List<Widget> _widgets = [const UserDashboard(), const AddMealType()];
   @override
   Widget build(BuildContext context) {
     // final User? user = ModalRoute.of(context)!.settings.arguments as User;
@@ -41,7 +42,11 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      body: _widgets[selectedIndex!],
+      body: Container(
+          color: Colors.grey.withOpacity(0.05),
+          // color: Colors.grey.withOpacity(0.2),
+          // color: Colors.black,
+          child: _widgets[selectedIndex!]),
       bottomNavigationBar: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(
