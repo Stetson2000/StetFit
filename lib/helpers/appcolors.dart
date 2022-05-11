@@ -43,15 +43,15 @@ class AppColors {
   //       ),
   //     );
 
-  static LinearGradient getLinearGradient(MaterialColor color) {
+  static LinearGradient getLinearGradientSingle(MaterialColor color) {
     return LinearGradient(
       begin: Alignment.bottomLeft,
       end: Alignment.topRight,
       colors: [
         color[400]!,
         color[300]!,
-        Colors.amber.shade400,
-        Colors.amber.shade100,
+        color[400]!,
+        color[100]!,
         // color[100]!,
       ],
       stops: const [
@@ -63,6 +63,29 @@ class AppColors {
       ],
     );
   }
+
+  
+  static LinearGradient getLinearGradientDouble(MaterialColor colorOne,MaterialColor colorTwo) {
+    return LinearGradient(
+      begin: Alignment.bottomLeft,
+      end: Alignment.topRight,
+      colors: [
+        colorOne[400]!,
+        colorOne[300]!,
+        colorTwo[400]!,
+        colorTwo[100]!,
+        // color[100]!,
+      ],
+      stops: const [
+        0.1,
+        0.4,
+        // 0.6,
+        0.7,
+        0.9,
+      ],
+    );
+  }
+
 
   static LinearGradient getDarkLinearGradient(MaterialColor color) {
     return LinearGradient(

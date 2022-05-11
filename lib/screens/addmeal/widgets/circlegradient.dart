@@ -29,7 +29,7 @@ class CircleGradientIcon extends StatelessWidget {
                 blurRadius: 5,
                 offset: const Offset(2, 2))
           ],
-          gradient: AppColors.getLinearGradient(color),
+          gradient: AppColors.getLinearGradientSingle(color),
         ),
         child: Icon(
           icon,

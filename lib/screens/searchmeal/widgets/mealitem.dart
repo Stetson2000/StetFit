@@ -20,13 +20,14 @@ class MealItem extends StatelessWidget {
               children: <Widget>[
                 Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Colors.black54.withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(10),
+                    // border: Border.all(
+                    //   color: Colors.black54.withOpacity(0.5),
 
-                        // Theme.of(context).backgroundColor.withOpacity(0.4),
-                        width: 4,
-                      )),
+                    //   // Theme.of(context).backgroundColor.withOpacity(0.4),
+                    //   width: 4,
+                    // )
+                  ),
                   child: ClipRRect(
                     borderRadius: const BorderRadius.all(
                       Radius.circular(15),

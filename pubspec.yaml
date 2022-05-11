@@ -34,6 +34,7 @@ dependencies:
   gender_picker: ^1.1.0
   gender_selection: "^0.0.8"
   numberpicker: ^2.1.1
+  google_fonts: ^2.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -77,6 +78,10 @@ flutter:
     - assets/images/Spaghetti.jpg
     - assets/images/White_Bread.jpg
     - assets/images/White_Rice.jpg
+    - assets/images/White_Rice.jpg
+    - assets/images/exercise.png
+    - assets/images/yellow-heart.png
+    - assets/images/nutrition-splash.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
