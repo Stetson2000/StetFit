@@ -104,24 +104,49 @@ class MealScreen extends StatelessWidget {
               ],
             )),
             Consumer<UserController>(
-              builder: (context, viewmodel, _) => ElevatedButton(
-                onPressed: () async {
-                  await viewmodel.updateUserMeal(meal?.id);
-                },
-                child: Text(
-                  'Add Meal',
-                  style: TextStyle(
-                    fontFamily: 'Lato',
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white.withOpacity(0.9),
-                  ),
-                ),
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.amber.withOpacity(0.7)
+              builder: (context, viewmodel, _) => Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () async {
+                      // print(meal?.id);
+
+                      await viewmodel.updateUserMeal(meal?.id);
+                    },
+                    child: Text(
+                      'Add',
+                      style: TextStyle(
+                        fontFamily: 'Lato',
+                        fontSize: 23,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white.withOpacity(0.9),
+                      ),
+                    ),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            Colors.amber.withOpacity(1)
                             // const Color.fromRGBO(246, 197, 190, 1)
                             )),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Theme.of(context).backgroundColor,
+                    ),
+                    child: IconButton(
+                      onPressed: () async {
+                        await viewmodel.updateUserFavorites(meal?.id);
+                      },
+                      icon: const Icon(
+                        Icons.favorite_border,
+                        size: 30,
+                      ),
+                      color: Colors.white,
+                    ),
+                  )
+                ],
               ),
             )
           ],

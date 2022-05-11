@@ -24,6 +24,7 @@ class User with ChangeNotifier {
   int? carbTaken;
   int? fatTaken;
   List<dynamic>? meals;
+  List<dynamic>? favoritemeals;
 
   User(
       {this.id,
@@ -40,7 +41,8 @@ class User with ChangeNotifier {
       this.protienTaken,
       this.carbTaken,
       this.fatTaken,
-      this.meals});
+      this.meals,
+      this.favoritemeals});
 
   setUsername(String full) => fullname = full;
   User.fromJson(Map<String, dynamic> json) {
@@ -64,6 +66,17 @@ class User with ChangeNotifier {
     } else if (json['meals'] == null) {
       meals = [];
     }
+
+    if (json['favoritemeals'] != null) {
+      final v = json['favoritemeals'];
+      final arr0 = <dynamic>[];
+      v.forEach((v) {
+        arr0.add(v);
+      });
+      favoritemeals = arr0;
+    } else if (json['favoritemeals'] == null) {
+      favoritemeals = [];
+    }
   }
   Map<String, dynamic> toJson() => {
         'fullname': fullname,
@@ -76,5 +89,6 @@ class User with ChangeNotifier {
         'activitylevel': activitylevel,
         'targetweight': targetweight,
         'meals': meals,
+        'favoritemeals': favoritemeals
       };
 }

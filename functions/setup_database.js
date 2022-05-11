@@ -19,6 +19,7 @@ async function setupDatabase(req, res, next) {
       activitylevel: 3,
       targetweight: 61,
       meals: [],
+      favoritemeals: [],
     },
     {
       fullname: "samy ",
@@ -31,9 +32,10 @@ async function setupDatabase(req, res, next) {
       activitylevel: 3,
       targetweight: 61,
       meals: [],
+      favoritemeals: [],
     },
   ]);
-
+  
   addDocuments("meals", [
     {
       title: "EGGS",

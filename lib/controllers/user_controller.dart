@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:stetfit/models/meal.dart';
 import 'package:stetfit/models/user.dart';
 import 'package:stetfit/screens/login/login_viewmodel.dart';
@@ -27,8 +28,19 @@ class UserController with ChangeNotifier {
 
   updateUserMeal(dynamic mealID) async {
     _user?.meals?.add(mealID);
+
     await userControllerServices.addMealToUser(
         userID: _user?.id, updatedMeals: _user?.meals);
+    notifyListeners();
+  }
+
+  updateUserFavorites(dynamic mealID) async {
+    _user?.favoritemeals?.add(mealID);
+
+    print(_user?.favoritemeals?.length);
+
+    await userControllerServices.addFavoriteToUser(
+        userID: _user?.id, updatedMeals: _user?.favoritemeals);
     notifyListeners();
   }
 }
