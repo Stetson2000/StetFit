@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:stetfit/models/meal.dart';
 import 'package:stetfit/screens/addmeal/meal_view.dart';
 import 'package:stetfit/screens/searchmeal/searchmeal_viewmodel.dart';
+import 'package:stetfit/screens/searchmeal/widgets/mealitem.dart';
 
 class SearchMeal extends StatelessWidget {
   static const routeName = "/searchmeal-screen";
@@ -117,67 +118,50 @@ class SearchMeal extends StatelessWidget {
               Container(
                 height: 400,
                 child: ListView.builder(
-                  itemBuilder: ((context, index) => Container(
-                      margin: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: ListTile(
-                          onTap: () => Navigator.pushNamed(
-                              context, MealScreen.routeName,
-                              arguments: meals[index]),
-                          // print("tapped"),
-                          leading: Text(" ${(index + 1)} "),
-                          title: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                meals[index]?.title?.toLowerCase() ?? "",
-                              ),
-                              Text(
-                                meals[index]?.kcal.toString() ?? " ",
-                              ),
-                              Text(
-                                meals[index]?.grade ?? " ",
-                              ),
-                            ],
-                          )))),
+                  itemBuilder: ((context, index) => GestureDetector(
+                        onTap: () => Navigator.of(context).pushNamed(
+                            MealScreen.routeName,
+                            arguments: meals[index]),
+                        child: MealItem(
+                          title: meals[index]?.title,
+                          imageUrl: meals[index]?.imageUrl,
+                        ),
+                      )),
                   itemCount: meals.length,
                 ),
-              )
 
-              // Column(
-              //     children: meals
-              //         .map((meal) => Container(
-              //             margin: const EdgeInsets.all(10),
-              //             decoration: BoxDecoration(
-              //               border: Border.all(color: Colors.black),
-              //               borderRadius: BorderRadius.circular(15),
-              //             ),
-              //             child: ListTile(
-              //                 onTap: () => Navigator.pushNamed(
-              //                     context, MealScreen.routeName,
-              //                     arguments: meal),
-              //                 // print("tapped"),
-              //                 leading: Text(meal?.id.toString() ?? ""),
-              //                 title: Row(
-              //                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //                   crossAxisAlignment: CrossAxisAlignment.center,
-              //                   children: [
-              //                     Text(
-              //                       meal?.title ?? "",
-              //                     ),
-              //                     Text(
-              //                       meal?.kcal.toString() ?? " ",
-              //                     ),
-              //                     Text(
-              //                       meal?.grade ?? " ",
-              //                     ),
-              //                   ],
-              //                 ))))
-              //         .toList()),
+                // Column(
+                //     children: meals
+                //         .map((meal) => Container(
+                //             margin: const EdgeInsets.all(10),
+                //             decoration: BoxDecoration(
+                //               border: Border.all(color: Colors.black),
+                //               borderRadius: BorderRadius.circular(15),
+                //             ),
+                //             child: ListTile(
+                //                 onTap: () => Navigator.pushNamed(
+                //                     context, MealScreen.routeName,
+                //                     arguments: meal),
+                //                 // print("tapped"),
+                //                 leading: Text(meal?.id.toString() ?? ""),
+                //                 title: Row(
+                //                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //                   crossAxisAlignment: CrossAxisAlignment.center,
+                //                   children: [
+                //                     Text(
+                //                       meal?.title ?? "",
+                //                     ),
+                //                     Text(
+                //                       meal?.kcal.toString() ?? " ",
+                //                     ),
+                //                     Text(
+                //                       meal?.grade ?? " ",
+                //                     ),
+                //                   ],
+                //                 ))))
+
+                //         .toList()),
+              )
             ],
           ),
         ),
