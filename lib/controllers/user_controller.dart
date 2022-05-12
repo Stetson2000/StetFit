@@ -7,6 +7,15 @@ import 'package:provider/provider.dart';
 import 'package:stetfit/services/usercontroller/addmeal_services.dart';
 
 class UserController with ChangeNotifier {
+  UserController._privateConstructor();
+
+  static final UserController _instance = UserController._privateConstructor();
+
+  // static UserController get instance => _instance;
+  factory UserController() {
+    return _instance;
+  }
+
   User? _user;
   UserControllerServices userControllerServices = UserControllerServices();
 
@@ -34,12 +43,18 @@ class UserController with ChangeNotifier {
     notifyListeners();
   }
 
-  updateUserFavorites(dynamic mealID) async {
+  isFavorite(dynamic mealID) => _user?.favoritemeals?.contains(mealID);
+
+  addUserFavorites(dynamic mealID) async {
     _user?.favoritemeals?.add(mealID);
+    await userControllerServices.updateUserFavorite(
+        userID: _user?.id, updatedMeals: _user?.favoritemeals);
+    notifyListeners();
+  }
 
-    print(_user?.favoritemeals?.length);
-
-    await userControllerServices.addFavoriteToUser(
+  removeUserFavorites(dynamic mealID) async {
+    _user?.favoritemeals?.removeWhere((element) => element == mealID);
+    await userControllerServices.updateUserFavorite(
         userID: _user?.id, updatedMeals: _user?.favoritemeals);
     notifyListeners();
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:stetfit/screens/addmeal/widgets/circlegradient.dart';
 import 'package:stetfit/screens/userdashboard/widgets/cardgradient.dart';
+import 'package:stetfit/screens/userfavorites/userfavorites_view.dart';
 
 class UserDashboard extends StatelessWidget {
   static const routeName = '/userdashboard-screen';
@@ -33,13 +34,16 @@ class UserDashboard extends StatelessWidget {
         children: [
           Container(
             margin: const EdgeInsets.only(left: 15),
-            child: CardGradient(
-              imageUrl: "yellow-heart.png",
-              title: "Favorites",
-              height: (height / 4) - 30,
-              width: (width / 2) - 30,
-              firstColor: Colors.red,
-              secondColor: Colors.amber,
+            child: GestureDetector(
+              onTap: () => Navigator.of(context).pushNamed(UserFavorites.routeName),
+              child: CardGradient(
+                imageUrl: "yellow-heart.png",
+                title: "Favorites",
+                height: (height / 4) - 30,
+                width: (width / 2) - 30,
+                firstColor: Colors.red,
+                secondColor: Colors.amber,
+              ),
             ),
           ),
           Container(

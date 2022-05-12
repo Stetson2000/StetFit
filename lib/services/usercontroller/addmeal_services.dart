@@ -21,7 +21,7 @@ class UserControllerServices extends Rest {
     await Rest.patch('users/$userID', data: toJson());
   }
 
-  Future<void> addFavoriteToUser({dynamic updatedMeals, String? userID}) async {
+  Future<void> updateUserFavorite({dynamic updatedMeals, String? userID}) async {
     Map<String, dynamic> toJson() {
       final data = <String, dynamic>{};
       if (updatedMeals != null) {

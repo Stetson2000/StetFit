@@ -9,6 +9,7 @@ import 'package:stetfit/screens/signup/signup_view3.dart';
 import 'package:stetfit/screens/signup/signup_view4.dart';
 import 'package:stetfit/screens/signup/signup_view5.dart';
 import 'package:stetfit/screens/userdashboard/userdashboard_view.dart';
+import 'package:stetfit/screens/userfavorites/userfavorites_view.dart';
 
 Route<dynamic> createRoute(RouteSettings? settings) {
   // final args = settings!.arguments as Map<String?,dynamic>;
@@ -21,28 +22,31 @@ Route<dynamic> createRoute(RouteSettings? settings) {
           builder: (context) => SignUpScreen(), settings: settings);
     case SignUpScreen2.routeName:
       return MaterialPageRoute(
-          builder: (context) => SignUpScreen2(), settings: settings);
+          builder: (context) => const SignUpScreen2(), settings: settings);
     case SignUpScreen3.routeName:
       return MaterialPageRoute(
-          builder: (context) => SignUpScreen3(), settings: settings);
+          builder: (context) => const SignUpScreen3(), settings: settings);
     case SignUpScreen4.routeName:
       return MaterialPageRoute(
-          builder: (context) => SignUpScreen4(), settings: settings);
+          builder: (context) => const SignUpScreen4(), settings: settings);
     case SignUpScreen5.routeName:
       return MaterialPageRoute(
-          builder: (context) => SignUpScreen5(), settings: settings);
+          builder: (context) => const SignUpScreen5(), settings: settings);
     case HomeScreen.routeName:
       return MaterialPageRoute(
-          builder: (context) => HomeScreen(), settings: settings);
+          builder: (context) => const HomeScreen(), settings: settings);
+    case UserFavorites.routeName:
+      return MaterialPageRoute(
+          builder: (context) => const UserFavorites(), settings: settings);
     case UserDashboard.routeName:
       return MaterialPageRoute(
-          builder: (context) => UserDashboard(), settings: settings);
+          builder: (context) => const UserDashboard(), settings: settings);
     case SearchMeal.routeName:
       return MaterialPageRoute(
           builder: (context) => SearchMeal(), settings: settings);
     case MealScreen.routeName:
       return MaterialPageRoute(
-          builder: (context) => MealScreen(), settings: settings);
+          builder: (context) => const MealScreen(), settings: settings);
   }
 
   return MaterialPageRoute(builder: (context) => LoginScreen());

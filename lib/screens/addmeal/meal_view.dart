@@ -44,6 +44,10 @@ class MealScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: Navigator.of(context).pop),
+        automaticallyImplyLeading: false,
         title: Text(meal?.title?.toLowerCase() ?? " "),
       ),
       body: SingleChildScrollView(
@@ -137,10 +141,16 @@ class MealScreen extends StatelessWidget {
                     ),
                     child: IconButton(
                       onPressed: () async {
-                        await viewmodel.updateUserFavorites(meal?.id);
+                        if (!viewmodel.isFavorite(meal?.id)) {
+                          await viewmodel.addUserFavorites(meal?.id);
+                        } else {
+                          await viewmodel.removeUserFavorites(meal?.id);
+                        }
                       },
-                      icon: const Icon(
-                        Icons.favorite_border,
+                      icon: Icon(
+                        viewmodel.isFavorite(meal?.id)
+                            ? Icons.favorite
+                            : Icons.favorite_border,
                         size: 30,
                       ),
                       color: Colors.white,

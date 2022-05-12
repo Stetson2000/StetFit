@@ -15,6 +15,7 @@ import 'package:stetfit/screens/signup/signup_view3.dart';
 import 'package:stetfit/screens/signup/signup_view4.dart';
 import 'package:stetfit/screens/signup/signup_view5.dart';
 import 'package:stetfit/screens/signup/signup_viewmodel.dart';
+import 'package:stetfit/screens/userfavorites/userfavorites_viewmodel.dart';
 import 'package:stetfit/screens/usermeals/usermeals_viewmodel.dart';
 import 'package:stetfit/services/searchmeal/searchmeal_services.dart';
 import 'package:stetfit/services/usercontroller/addmeal_services.dart';
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => SearchMealViewModel()),
         ChangeNotifierProvider(create: (context) => UserController()),
         ChangeNotifierProvider(create: (context) => UserMealsViewModel()),
+        ChangeNotifierProvider(create: (context) => UserFavoritesViewModel()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
