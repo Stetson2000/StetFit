@@ -19,6 +19,8 @@ class User with ChangeNotifier {
   int? weight;
   int? targetweight;
   int? activitylevel;
+  int? amr;
+  double? goalInKcal;
   int? calorieTaken;
   int? protienTaken;
   int? carbTaken;
@@ -37,6 +39,7 @@ class User with ChangeNotifier {
       required this.weight,
       required this.targetweight,
       required this.activitylevel,
+      this.amr,
       this.calorieTaken,
       this.protienTaken,
       this.carbTaken,

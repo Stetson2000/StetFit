@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:stetfit/controllers/user_controller.dart';
 // import 'package:stetfit/screens/addmeal/widgets/circlegradient.dart';
 import 'package:stetfit/screens/userdashboard/widgets/cardgradient.dart';
 import 'package:stetfit/screens/userfavorites/userfavorites_view.dart';
+import 'package:stetfit/screens/usernutrition/usernutrition_view.dart';
 
 class UserDashboard extends StatelessWidget {
   static const routeName = '/userdashboard-screen';
@@ -10,6 +12,7 @@ class UserDashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     var size = MediaQuery.of(context).size;
     double height = size.height;
     double width = size.width;
@@ -19,13 +22,16 @@ class UserDashboard extends StatelessWidget {
         margin: const EdgeInsets.only(top: 30),
         padding: const EdgeInsets.all(15),
         width: double.infinity,
-        child: CardGradient(
-          imageUrl: "nutrition-splash.png",
-          title: "Nutrition",
-          width: width,
-          height: height / 3,
-          firstColor: Colors.green,
-          secondColor: Colors.amber,
+        child: GestureDetector(
+          onTap: () => Navigator.of(context).pushNamed(UserNutrition.routeName),
+          child: CardGradient(
+            imageUrl: "nutrition-splash.png",
+            title: "Nutrition",
+            width: width,
+            height: height / 3,
+            firstColor: Colors.green,
+            secondColor: Colors.amber,
+          ),
         ),
       ),
       const SizedBox(height: 15),
@@ -35,7 +41,8 @@ class UserDashboard extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(left: 15),
             child: GestureDetector(
-              onTap: () => Navigator.of(context).pushNamed(UserFavorites.routeName),
+              onTap: () =>
+                  Navigator.of(context).pushNamed(UserFavorites.routeName),
               child: CardGradient(
                 imageUrl: "yellow-heart.png",
                 title: "Favorites",

@@ -149,9 +149,11 @@ class SignUpScreen2 extends StatelessWidget {
                                 onPressed: () {
                                   signUpViewModel.addIndex(
                                       'gender',
-                                      (gender == Gender.Male)
+                                      (gender == null)
                                           ? 'Male'
-                                          : 'Female');
+                                          : (gender == Gender.Male)
+                                              ? 'Male'
+                                              : 'Female');
 
                                   Navigator.pushNamed(
                                     context,

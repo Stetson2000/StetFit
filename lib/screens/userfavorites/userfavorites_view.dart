@@ -9,23 +9,18 @@ import 'package:stetfit/screens/searchmeal/widgets/mealitem.dart';
 import 'package:stetfit/screens/userfavorites/userfavorites_viewmodel.dart';
 import 'package:stetfit/screens/usermeals/usermeals_viewmodel.dart';
 
-class UserFavorites extends StatefulWidget {
+class UserFavorites extends StatelessWidget {
   static const routeName = '/userfavorites-screen';
 
   const UserFavorites({Key? key}) : super(key: key);
 
-  @override
-  State<UserFavorites> createState() => _UserFavoritesState();
-}
-
-class _UserFavoritesState extends State<UserFavorites> {
   // Future<List<Meal?>>? favorites;
 
-  @override
-  void initState() {
-    setState(() {});
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   setState(() {});
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +37,7 @@ class _UserFavoritesState extends State<UserFavorites> {
 
     // print(favorites.length);
 
-    // @override
+    // @override5
     // void didChangeDependencies() {
 
     // }

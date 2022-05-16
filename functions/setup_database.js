@@ -12,7 +12,7 @@ async function setupDatabase(req, res, next) {
       fullname: "ali hamed",
       username: "ali123",
       password: "123",
-      gender: "Female",
+      gender: "Male",
       age: 22,
       height: 160,
       weight: 60,
@@ -25,7 +25,7 @@ async function setupDatabase(req, res, next) {
       fullname: "samy ",
       username: "samy12",
       password: "123",
-      gender: "Female",
+      gender: "Male",
       age: 18,
       height: 160,
       weight: 60,
@@ -35,7 +35,7 @@ async function setupDatabase(req, res, next) {
       favoritemeals: [],
     },
   ]);
-  
+
   addDocuments("meals", [
     {
       title: "EGGS",

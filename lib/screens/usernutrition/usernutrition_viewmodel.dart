@@ -3,7 +3,7 @@ import 'package:stetfit/controllers/user_controller.dart';
 import 'package:stetfit/models/meal.dart';
 import 'package:stetfit/services/searchmeal/searchmeal_services.dart';
 
-class UserFavoritesViewModel with ChangeNotifier {
+class UserNutritionViewModel with ChangeNotifier {
   SearchMealService searchMealService = SearchMealService();
 
   final user = UserController().user;
@@ -15,7 +15,7 @@ class UserFavoritesViewModel with ChangeNotifier {
   // void setMealsID(List<dynamic> mealsId) => _mealsId = mealsId;
 
   Future<List<Meal?>> getUserMeal() async {
-    _mealsId = user?.favoritemeals;
+    _mealsId = user?.meals;
     meals = [];
     for (var i = 0; i < _mealsId.length; i++) {
       if (!meals.contains(_mealsId[i])) {
