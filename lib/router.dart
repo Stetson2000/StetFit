@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stetfit/screens/addmeal/meal_view.dart';
+import 'package:stetfit/screens/exercises/addexercise/addexercise_view.dart';
+import 'package:stetfit/screens/exercises/searchexercise/searchexercise_view.dart';
 import 'package:stetfit/screens/homescreen/homescreen_view.dart';
 import 'package:stetfit/screens/login/login_view.dart';
 import 'package:stetfit/screens/searchmeal/searchmeal_view.dart';
@@ -51,6 +53,11 @@ Route<dynamic> createRoute(RouteSettings? settings) {
     case MealScreen.routeName:
       return MaterialPageRoute(
           builder: (context) => const MealScreen(), settings: settings);
+    case SearchExercise.routeName:
+      return MaterialPageRoute(
+          builder: (context) => const SearchExercise(), settings: settings);
+
+    
   }
 
   return MaterialPageRoute(builder: (context) => LoginScreen());

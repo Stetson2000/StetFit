@@ -53,7 +53,12 @@ class UserNutrition extends StatelessWidget {
                           CircleSymbol(
                               child: Text('${userController.userGoal}')),
                           Text('-'),
-                          CircleSymbol(child: Text('0000')),
+                          FutureBuilder(
+                              future: userController.userConsumption,
+                              builder: (context, snapshot) {
+                                return CircleSymbol(
+                                    child: Text('${snapshot.data}'));
+                              }),
                           Text('+'),
                           CircleSymbol(child: Text('0000')),
                           Text('='),

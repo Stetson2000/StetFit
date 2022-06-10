@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stetfit/controllers/user_controller.dart';
+import 'package:stetfit/screens/Exercises/addexercise/addexercise_view.dart';
 import 'package:stetfit/screens/addmeal/addmealtype_view.dart';
 import 'package:stetfit/screens/login/login_view.dart';
 import 'package:stetfit/screens/userdashboard/userdashboard_view.dart';
@@ -21,7 +22,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int? selectedIndex = 0;
 
-  final List<Widget> _widgets = [const UserDashboard(), const AddMealType()];
+  final List<Widget> _widgets = [
+    const UserDashboard(),
+    const AddMealType(),
+    const AddExercise()
+  ];
   @override
   Widget build(BuildContext context) {
     // final User? user = ModalRoute.of(context)!.settings.arguments as User;
@@ -55,6 +60,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 backgroundColor: Colors.black),
             BottomNavigationBarItem(
                 icon: Icon(Icons.add),
+                label: 'Add Meals',
+                backgroundColor: Colors.black),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.fitness_center),
                 label: 'Add Meals',
                 backgroundColor: Colors.black)
           ],

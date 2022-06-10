@@ -68,7 +68,7 @@ class MyApp extends StatelessWidget {
         //   LoginScreen.routeName: (context) => LoginScreen(),
         // SignUpScreen.routeName: (context) => SignUpScreen(),
         // SignUpScreen2.routeName: (context) => SignUpScreen2(),
-        // SignUpScreen3.routeName: (context) => SignUpScreen3(),
+        // SignUpScreen3.routeName: (context) => SignUpScreen3(),5
         // SignUpScreen4.routeName: (context) => SignUpScreen4(),
         // SignUpScreen5.routeName: (context) => SignUpScreen5(),
         // HomeScreen.routeName:(context)=>HomeScreen(),

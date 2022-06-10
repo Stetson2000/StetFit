@@ -59,19 +59,27 @@ class FutureBuilderCard extends StatelessWidget {
                                     child: Column(
                                       children: [
                                         Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          // mainAxisAlignment:
+                                          //     MainAxisAlignment.spaceBetween,
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                           children: [
-                                            Text(
-                                              meal?.title ?? "test",
+                                            Expanded(
+                                              flex: 3,
+                                              child: Text(
+                                                meal?.title ?? "test",
+                                              ),
                                             ),
-                                            Text(
-                                              meal?.kcal.toString() ?? " ",
+                                            Expanded(
+                                              flex: 2,
+                                              child: Text(
+                                                meal?.kcal.toString() ?? " ",
+                                              ),
                                             ),
-                                            Text(
-                                              meal?.grade ?? " ",
+                                            Expanded(
+                                              child: Text(
+                                                meal?.grade ?? " ",
+                                              ),
                                             ),
                                             // const Divider()
                                           ],

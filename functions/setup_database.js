@@ -2,11 +2,66 @@ const db = require("../functions/api/database");
 
 async function setupDatabase(req, res, next) {
   // To delete all the collections
-  const collections = ["users", "meals"];
+  const collections = ["users", "meals", "exercises"];
   collections.forEach(async (collection) => await deleteCollection(collection));
 
   // Add documents to the todos collection
-
+  addDocuments("exercises", [
+    {
+      title: "Bench Press",
+      met: 6.0,
+      imageUrl: "Bench-press.gif",
+      categories: [1, 2],
+    },
+    {
+      title: "Incline Dumbell Press",
+      met: 5.0,
+      imageUrl: "Dumbell-Incline-Press.gif",
+      categories: [1, 6],
+    },
+    {
+      title: "Tricep Skull Crushers",
+      met: 3.5,
+      imageUrl: "Tricep-skull-crushers.gif",
+      categories: [2, 6],
+    },
+    {
+      title: "Bicep Curl",
+      met: 3.5,
+      imageUrl: "Bicep-Curl.gif",
+      categories: [2],
+    },
+    {
+      title: "Arnold Shoulder Press",
+      met: 5.0,
+      imageUrl: "Shoulder-Arnold.gif",
+      categories: [2, 6],
+    },
+    {
+      title: "Lateral Raise",
+      met: 3.5,
+      imageUrl: "Lateral-Raise.gif",
+      categories: [6],
+    },
+    {
+      title: "Squats",
+      met: 5.0,
+      imageUrl: "Squat.gif",
+      categories: [3, 4],
+    },
+    {
+      title: "Abdominal Crunches",
+      met: 3.5,
+      imageUrl: "Abdominal-Crunches.gif",
+      categories: [4],
+    },
+    {
+      title: "Treadmill Running",
+      met: 8.3,
+      imageUrl: "Cardio.gif",
+      categories: [5],
+    },
+  ]);
   addDocuments("users", [
     {
       fullname: "ali hamed",

@@ -82,6 +82,15 @@ flutter:
     - assets/images/exercise.png
     - assets/images/yellow-heart.png
     - assets/images/nutrition-splash.png
+    - assets/gifs/Abdominal-Crunches.gif
+    - assets/gifs/Bench-press.gif
+    - assets/gifs/Bicep-Curl.gif
+    - assets/gifs/Cardio.gif
+    - assets/gifs/Dumbell-Incline-Press.gif
+    - assets/gifs/Lateral-Raise.gif
+    - assets/gifs/Shoulder-Arnold.gif
+    - assets/gifs/Squat.gif
+    - assets/gifs/Tricep-skull-crushers.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

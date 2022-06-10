@@ -35,7 +35,7 @@ class Meal {
   final double? grams;
   final String? title;
   final String? grade;
-  final double? kcal;
+  final int? kcal;
   final double? protein;
   final double? carb;
   final double? fat;
@@ -67,7 +67,7 @@ class Meal {
           grams: json['grams']?.toDouble(),
           title: json['title']?.toString(),
           grade: json['grade']?.toString(),
-          kcal: json['kcal']?.toDouble(),
+          kcal: json['kcal']?.toInt(),
           protein: json['protein']?.toDouble(),
           carb: json['carb']?.toDouble(),
           fat: json['fat']?.toDouble(),

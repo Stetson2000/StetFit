@@ -37,4 +37,14 @@ class UserControllerServices extends Rest {
 
     await Rest.patch('users/$userID', data: toJson());
   }
+
+  Future<Meal?> getUserMealbyId(String? id) async {
+    final json = await Rest.get('meals/$id');
+
+    if (json == null || json.length == 0) {
+      return null;
+    }
+
+    return Meal.fromJson(json);
+  }
 }

@@ -107,4 +107,18 @@ class UserController with ChangeNotifier {
 
     return _user?.goalInKcal?.round();
   }
+
+  Future<int?> get userConsumption async {
+    List<Meal?> meals = [];
+    var sum = 0;
+
+    for (var mealId in _user!.meals!) {
+      meals.add(await userControllerServices.getUserMealbyId(mealId));
+      Meal? meal = meals.where((element) => element?.id == mealId).first;
+      sum += meal?.kcal ?? 0;
+      _user?.calorieTaken = sum;
+    }
+    print(_user?.calorieTaken);
+    return _user?.calorieTaken;
+  }
 }
