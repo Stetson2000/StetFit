@@ -2,11 +2,12 @@ import 'dart:ffi';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:stetfit/models/exercise.dart';
 import 'package:stetfit/models/meal.dart';
 import 'package:stetfit/models/user.dart';
 import 'package:stetfit/screens/login/login_viewmodel.dart';
 import 'package:provider/provider.dart';
-import 'package:stetfit/services/usercontroller/addmeal_services.dart';
+import 'package:stetfit/services/usercontroller/usercontroller_services.dart';
 
 class UserController with ChangeNotifier {
   UserController._privateConstructor();
@@ -27,20 +28,36 @@ class UserController with ChangeNotifier {
     notifyListeners();
   }
 
-  void setUserName(String fullname) {
-    _user?.setUsername(fullname);
+   setFullName(String fullname) {
+    _user?.setFullname(fullname);
+    notifyListeners();
+  }
+  setAge(int age) {
+    _user?.setAge(age);
+    notifyListeners();
+  }
+  setHeight(int height) {
+    _user?.setHeight(height);
+    notifyListeners();
+  }
+  setWeight(int weight) {
+    _user?.setWeight(weight);
+    notifyListeners();
+  }
+  setTargetWeight(int targetWeight) {
+    _user?.setTargetWeight(targetWeight);
     notifyListeners();
   }
 
+
   get user => _user;
 
-// addMeal({int ?mealId ,User ?user}){
-// //  var addMealToUser = await
-// }
+
 
   updateUserMeal(dynamic mealID) async {
-    _user?.meals?.add(mealID);
 
+    MealOrder mealOrder = MealOrder(id:  mealID,day: DateTime.now().toString());
+    _user?.meals?.add(mealOrder);
     await userControllerServices.addMealToUser(
         userID: _user?.id, updatedMeals: _user?.meals);
     notifyListeners();
@@ -59,6 +76,13 @@ class UserController with ChangeNotifier {
     _user?.favoritemeals?.removeWhere((element) => element == mealID);
     await userControllerServices.updateUserFavorite(
         userID: _user?.id, updatedMeals: _user?.favoritemeals);
+    notifyListeners();
+  }
+
+  addExercise(ExerciseOrder order) async {
+    _user?.exercises?.add(order);
+    await userControllerServices.addExerciseToUser(
+        orders: _user?.exercises, userID: _user?.id);
     notifyListeners();
   }
 
@@ -102,23 +126,47 @@ class UserController with ChangeNotifier {
         ? _user?.goalInKcal = userAmr - amountPerDay
         : _user?.goalInKcal = userAmr + amountPerDay;
 
-    // print(_user?.goalInKcal);
-    // print(_user?.amr);
+    
 
     return _user?.goalInKcal?.round();
   }
 
   Future<int?> get userConsumption async {
     List<Meal?> meals = [];
+
     var sum = 0;
 
-    for (var mealId in _user!.meals!) {
-      meals.add(await userControllerServices.getUserMealbyId(mealId));
-      Meal? meal = meals.where((element) => element?.id == mealId).first;
+    for (var mealorder in _user!.meals!) {
+      meals.add(await userControllerServices.getUserMealbyId(mealorder.id));
+      Meal? meal = meals.where((element) => element?.id == mealorder.id).first;
       sum += meal?.kcal ?? 0;
       _user?.calorieTaken = sum;
     }
-    print(_user?.calorieTaken);
+
+    if (sum<=0) {
+      return 0;
+    }
     return _user?.calorieTaken;
   }
+
+  Future<int?> get userExerciseCalories async {
+    List<Exercise?> exercises = [];
+
+    double sum = 0;
+
+    for (var order in _user!.exercises!) {
+      exercises.add(await userControllerServices.getUserExercisebyId(order.id));
+      Exercise? exercise =
+          exercises.where((element) => element?.id == order.id).first;
+      sum +=
+          (order.duration! * ((exercise!.met!) * 3.5 * (_user!.weight!)) / 200);
+    }
+
+    return sum.toInt();
+  }
+
+  get userRemaining async => (_user!.goalInKcal! -
+          (await userConsumption as num) +
+          (await userExerciseCalories as num))
+      .round();
 }

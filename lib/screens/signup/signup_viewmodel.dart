@@ -4,7 +4,11 @@ import '../../services/signup/signup_services.dart';
 import '../../models/user.dart';
 
 class SignUpViewModel extends ChangeNotifier {
-  Map<String, dynamic> puser = {"meals": []};
+  Map<String, dynamic> puser = {
+    "exercises": [],
+    "favoritemeals": [],
+    "meals": []
+  };
 
   void addIndex(String key, dynamic value) => puser[key] = value;
 

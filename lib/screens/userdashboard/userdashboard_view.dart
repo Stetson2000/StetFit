@@ -12,7 +12,6 @@ class UserDashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     var size = MediaQuery.of(context).size;
     double height = size.height;
     double width = size.width;
@@ -57,7 +56,7 @@ class UserDashboard extends StatelessWidget {
             margin: const EdgeInsets.only(right: 15),
             child: CardGradient(
               imageUrl: "exercise.png",
-              title: "Exercise ",
+              title: "   Details",
               height: (height / 4) - 30,
               width: (width / 2) - 30,
               firstColor: Colors.blue,

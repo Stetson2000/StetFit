@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:stetfit/models/exercise.dart';
+import 'package:stetfit/models/meal.dart';
 
 enum ActivityLevel {
   sedentary,
@@ -8,7 +9,7 @@ enum ActivityLevel {
   extractive,
 }
 
-class User with ChangeNotifier {
+class User {
   dynamic id;
   String? fullname;
   String? username;
@@ -25,8 +26,9 @@ class User with ChangeNotifier {
   int? protienTaken;
   int? carbTaken;
   int? fatTaken;
-  List<dynamic>? meals;
+  List<MealOrder>? meals;
   List<dynamic>? favoritemeals;
+  List<ExerciseOrder>? exercises;
 
   User(
       {this.id,
@@ -45,9 +47,15 @@ class User with ChangeNotifier {
       this.carbTaken,
       this.fatTaken,
       this.meals,
-      this.favoritemeals});
+      this.favoritemeals,
+      this.exercises});
 
-  setUsername(String full) => fullname = full;
+  setFullname(String full) => fullname = full;
+  setAge(int updatedage) => age = updatedage;
+  setWeight(int updatedWeight) => weight = updatedWeight;
+  setHeight(int updatedHeight) => height = updatedHeight;
+  setTargetWeight(int updatedTarget) => targetweight = updatedTarget;
+
   User.fromJson(Map<String, dynamic> json) {
     id = json['id']?.toString();
     fullname = json['fullname']?.toString();
@@ -61,9 +69,9 @@ class User with ChangeNotifier {
     targetweight = json['targetweight']?.toInt();
     if (json['meals'] != null) {
       final v = json['meals'];
-      final arr0 = <dynamic>[];
+      final arr0 = <MealOrder>[];
       v.forEach((v) {
-        arr0.add(v);
+        arr0.add(MealOrder.fromJson(v));
       });
       meals = arr0;
     } else if (json['meals'] == null) {
@@ -80,6 +88,15 @@ class User with ChangeNotifier {
     } else if (json['favoritemeals'] == null) {
       favoritemeals = [];
     }
+
+    if (json['exercises'] != null) {
+      final v = json['exercises'];
+      final arr0 = <ExerciseOrder>[];
+      v.forEach((v) {
+        arr0.add(ExerciseOrder.fromJson(v));
+      });
+      exercises = arr0;
+    }
   }
   Map<String, dynamic> toJson() => {
         'fullname': fullname,
@@ -92,6 +109,7 @@ class User with ChangeNotifier {
         'activitylevel': activitylevel,
         'targetweight': targetweight,
         'meals': meals,
-        'favoritemeals': favoritemeals
+        'favoritemeals': favoritemeals,
+        'exercises': exercises
       };
 }

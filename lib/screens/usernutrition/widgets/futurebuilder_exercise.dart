@@ -3,8 +3,25 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:stetfit/screens/usernutrition/usernutrition_viewmodel.dart';
 
-class FutureBuilderCard extends StatelessWidget {
-  const FutureBuilderCard({Key? key}) : super(key: key);
+import '../../../models/exercise.dart';
+
+class FutureBuilderExerciseCard extends StatelessWidget {
+  const FutureBuilderExerciseCard({Key? key}) : super(key: key);
+
+  String exerciseIntensity(Exercise exercise) {
+    if (exercise.met! <= 3.5) {
+      return 'Light Intensity';
+    } else if (exercise.met! <= 5.0) {
+      return 'Moderate Intensity';
+    } else if (exercise.met! <= 6.0) {
+      return 'High Intensity';
+    } else if (exercise.met! <= 8.3) {
+      return 'Extreme Intensity';
+    }
+
+    return '';
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +30,7 @@ class FutureBuilderCard extends StatelessWidget {
     final width = size.width;
     return FutureBuilder(
       future: Provider.of<UserNutritionViewModel>(context, listen: false)
-          .getUserMeal(),
+          .getUserExercises(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
@@ -40,21 +57,21 @@ class FutureBuilderCard extends StatelessWidget {
                         Container(
                             width: double.infinity,
                             decoration: const BoxDecoration(
-                                color: Color.fromARGB(255, 245, 90, 90),
+                                color: Color.fromARGB(255, 90, 157, 245),
                                 borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(15),
                                     topRight: Radius.circular(15))),
                             child: Padding(
                               padding: const EdgeInsets.all(5.0),
                               child: Text(
-                                'Your Meals',
+                                'Your Exercises',
                                 style: GoogleFonts.ubuntu(fontSize: 26),
                               ),
                             )),
                         Column(
-                          children: viewmodel.meals
+                          children: viewmodel.exercises
                               .map(
-                                (meal) => Padding(
+                                (exercise) => Padding(
                                     padding: const EdgeInsets.all(10),
                                     child: Column(
                                       children: [
@@ -67,20 +84,16 @@ class FutureBuilderCard extends StatelessWidget {
                                             Expanded(
                                               flex: 3,
                                               child: Text(
-                                                meal?.title ?? "test",
+                                                exercise?.title ?? "test",
                                               ),
                                             ),
                                             Expanded(
                                               flex: 2,
                                               child: Text(
-                                                meal?.kcal.toString() ?? " ",
+                                                exerciseIntensity(exercise!) ,
                                               ),
                                             ),
-                                            Expanded(
-                                              child: Text(
-                                                meal?.grade ?? " ",
-                                              ),
-                                            ),
+                                            
                                             // const Divider()
                                           ],
                                         ),

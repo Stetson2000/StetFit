@@ -3,9 +3,11 @@ import 'package:provider/provider.dart';
 import 'package:stetfit/controllers/user_controller.dart';
 import 'package:stetfit/screens/Exercises/addexercise/addexercise_view.dart';
 import 'package:stetfit/screens/addmeal/addmealtype_view.dart';
+import 'package:stetfit/screens/exercises/addexercise/exercises_view.dart';
 import 'package:stetfit/screens/login/login_view.dart';
 import 'package:stetfit/screens/userdashboard/userdashboard_view.dart';
 import 'package:stetfit/screens/usermeals/usermeals_view.dart';
+import 'package:stetfit/screens/userprofile/userprofile_view.dart';
 import '../login/login_view.dart';
 
 import '../../models/user.dart';
@@ -25,7 +27,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _widgets = [
     const UserDashboard(),
     const AddMealType(),
-    const AddExercise()
+    const ExerciseCategory(),
+    UserProfileScreen()
   ];
   @override
   Widget build(BuildContext context) {
@@ -41,8 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Text("Welcome ${user?.fullname} ")),
         actions: [
           IconButton(
-            onPressed: () =>
-                Navigator.of(context).popAndPushNamed(LoginScreen.routeName),
+            onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil(
+                LoginScreen.routeName, (route) => false),
             icon: const Icon(Icons.logout),
           )
         ],
@@ -53,19 +56,27 @@ class _HomeScreenState extends State<HomeScreen> {
           // color: Colors.black,
           child: _widgets[selectedIndex!]),
       bottomNavigationBar: BottomNavigationBar(
-          items: const [
+          items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-                backgroundColor: Colors.black),
+              icon: const Icon(Icons.home),
+              label: 'Home',
+              backgroundColor: Theme.of(context).primaryColor,
+            ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.add),
-                label: 'Add Meals',
-                backgroundColor: Colors.black),
+              icon: const Icon(Icons.add),
+              label: 'Add Meals',
+              backgroundColor: Theme.of(context).primaryColor,
+            ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.fitness_center),
-                label: 'Add Meals',
-                backgroundColor: Colors.black)
+              icon: const Icon(Icons.fitness_center),
+              label: 'Add Meals',
+              backgroundColor: Theme.of(context).primaryColor,
+            ),
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.account_circle_sharp),
+              label: 'User Profile',
+              backgroundColor: Theme.of(context).primaryColor,
+            )
           ],
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.black26,

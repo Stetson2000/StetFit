@@ -4,7 +4,7 @@ import 'package:stetfit/controllers/user_controller.dart';
 import 'package:stetfit/models/meal.dart';
 // import 'package:stetfit/screens/addmeal/meal_viewmodel.dart';
 import 'package:stetfit/screens/searchmeal/searchmeal_viewmodel.dart';
-import 'package:stetfit/services/usercontroller/addmeal_services.dart';
+import 'package:stetfit/services/usercontroller/usercontroller_services.dart';
 
 import '../../services/searchmeal/searchmeal_services.dart';
 
