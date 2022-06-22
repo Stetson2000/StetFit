@@ -125,7 +125,7 @@ class Model {
     //   e.g: {"username" : "alex", "age":20}
 
     async queryDocumentList(queryFilters) {
-
+        
         // If there is no filter specified, get all documents
         if (!queryFilters || Object.entries(queryFilters).length === 0) return this.getDocumentList()
 

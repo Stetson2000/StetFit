@@ -21,8 +21,6 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
   Widget build(BuildContext context) {
     SignUpViewModel signUpViewModel = context.watch<SignUpViewModel>();
 
-    // final Map<String?, dynamic> userInfo =
-    //     ModalRoute.of(context)!.settings.arguments as Map<String?, dynamic>;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -115,21 +113,7 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
                               ],
                             ),
                           ),
-                          /*
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          //Text('Don\'t have an account yet ? ', style: TextStyle(color: Colors.grey, fontStyle: FontStyle.italic),),
-                          TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Sign Up',
-                            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-                          ),
-                        ),
-                        ],
-                      ),
-                        */
+          
                         ],
                       ),
                     ),

@@ -35,8 +35,6 @@ class CardGradient extends StatelessWidget {
       ),
       width: width,
 
-      // color: Theme.of(context).primaryColor,
-
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -44,19 +42,16 @@ class CardGradient extends StatelessWidget {
               alignment: Alignment.centerLeft,
               padding: const EdgeInsets.only(top: 10, left: 20),
               child: Text(
-                'Your ${title ?? ""}', style: GoogleFonts.ubuntu(fontSize: 26),
+                'Your ${title ?? ""}',
+                style: GoogleFonts.ubuntu(fontSize: 26),
                 softWrap: true,
                 overflow: TextOverflow.visible,
-                // textAlign: TextAlign.start,
-                // textAlign: TextAlign.center,
               )),
           Container(
-              // alignment: Alignment.bottomRight,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(15),
                     bottomRight: Radius.circular(15)),
-                // border: Border.all(),
                 color: Colors.white,
               ),
               width: double.infinity,
@@ -65,26 +60,15 @@ class CardGradient extends StatelessWidget {
               child: title == "Nutrition"
                   ? Image.asset(
                       'assets/images/$imageUrl',
-                      // fit: BoxFit.contain,
                       fit: BoxFit.fitWidth,
-                      // height: height! * 0.3,
-                      // width: 25,
                     )
                   : Container(
                       padding: const EdgeInsets.all(15),
                       child: Image.asset(
                         'assets/images/$imageUrl',
                         alignment: Alignment.centerRight,
-
-                        // fit: BoxFit.contain,
-                        // fit: BoxFit.fitWidth,
-                        // height: height! * 0.3,
-                        // width: 25,
                       ),
-                    )
-
-              // width: double.infinity,
-              ),
+                    )),
         ],
       ),
     );

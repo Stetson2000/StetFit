@@ -4,7 +4,7 @@ import 'package:stetfit/controllers/user_controller.dart';
 import 'package:stetfit/models/meal.dart';
 // import 'package:stetfit/screens/addmeal/meal_viewmodel.dart';
 import 'package:stetfit/screens/searchmeal/searchmeal_viewmodel.dart';
-import 'package:stetfit/services/usercontroller/addmeal_services.dart';
+import 'package:stetfit/services/usercontroller/usercontroller_services.dart';
 
 import '../../services/searchmeal/searchmeal_services.dart';
 
@@ -13,12 +13,26 @@ class MealScreen extends StatelessWidget {
 
   const MealScreen({Key? key}) : super(key: key);
 
+  Widget buildDescription(BuildContext ctx, String title) {
+    return Container(
+        margin: const EdgeInsets.symmetric(vertical: 10),
+        child: Text(
+          title,
+          textAlign: TextAlign.center,
+          style: Theme.of(ctx).textTheme.headline6,
+        ));
+  }
+
   Widget buildTitle(BuildContext ctx, String title) {
     return Container(
         margin: const EdgeInsets.symmetric(vertical: 10),
         child: Text(
           title,
-          style: Theme.of(ctx).textTheme.headline6,
+          textAlign: TextAlign.center,
+          style: Theme.of(ctx)
+              .textTheme
+              .headline6
+              ?.copyWith(fontWeight: FontWeight.bold),
         ));
   }
 
@@ -44,6 +58,10 @@ class MealScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: Navigator.of(context).pop),
+        automaticallyImplyLeading: false,
         title: Text(meal?.title?.toLowerCase() ?? " "),
       ),
       body: SingleChildScrollView(
@@ -66,6 +84,9 @@ class MealScreen extends StatelessWidget {
               ),
             ),
             buildTitle(context, 'Nutritional Information'),
+            Center(
+                child: buildDescription(context,
+                    'For every ${meal?.grams}g the following macros are consumed:')),
             buildContainer(Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -104,24 +125,55 @@ class MealScreen extends StatelessWidget {
               ],
             )),
             Consumer<UserController>(
-              builder: (context, viewmodel, _) => ElevatedButton(
-                onPressed: () async {
-                  await viewmodel.updateUserMeal(meal?.id);
-                },
-                child: Text(
-                  'Add Meal',
-                  style: TextStyle(
-                    fontFamily: 'Lato',
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white.withOpacity(0.9),
-                  ),
-                ),
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.amber.withOpacity(0.7)
+              builder: (context, viewmodel, _) => Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () async {
+                      // print(meal?.id);
+
+                      await viewmodel.updateUserMeal(meal?.id);
+                    },
+                    child: Text(
+                      'Add',
+                      style: TextStyle(
+                        fontFamily: 'Lato',
+                        fontSize: 23,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white.withOpacity(0.9),
+                      ),
+                    ),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            Colors.amber.withOpacity(1)
                             // const Color.fromRGBO(246, 197, 190, 1)
                             )),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Theme.of(context).backgroundColor,
+                    ),
+                    child: IconButton(
+                      onPressed: () async {
+                        if (!viewmodel.isFavorite(meal?.id)) {
+                          await viewmodel.addUserFavorites(meal?.id);
+                        } else {
+                          await viewmodel.removeUserFavorites(meal?.id);
+                        }
+                      },
+                      icon: Icon(
+                        viewmodel.isFavorite(meal?.id)
+                            ? Icons.favorite
+                            : Icons.favorite_border,
+                        size: 30,
+                      ),
+                      color: Colors.white,
+                    ),
+                  )
+                ],
               ),
             )
           ],

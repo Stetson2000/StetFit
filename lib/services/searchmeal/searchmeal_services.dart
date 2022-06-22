@@ -34,7 +34,7 @@ class SearchMealService extends Rest {
       final nameLower = element.title?.toLowerCase();
       final queryLower = query?.toLowerCase();
 
-      return nameLower!.contains('$query');
+      return nameLower!.contains('$queryLower');
     }).toList();
   }
 

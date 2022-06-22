@@ -28,8 +28,6 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
     double height = size.height;
     double width = size.width;
 
-    // final Map<String?, dynamic> userInfo =
-    //     ModalRoute.of(context)!.settings.arguments as Map<String?, dynamic>;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(

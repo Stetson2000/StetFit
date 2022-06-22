@@ -5,11 +5,13 @@ class UserInput extends StatelessWidget {
   final String? hintTitle;
   final TextInputType? keyboardType;
   final bool? password;
+  final String? Function(String?)? validator;
 
   const UserInput(
       {Key? key,
       this.hintTitle,
       this.keyboardType,
+      this.validator,
       this.userInput,
       this.password})
       : super(key: key);
@@ -24,7 +26,8 @@ class UserInput extends StatelessWidget {
           borderRadius: BorderRadius.circular(30)),
       child: Padding(
         padding: const EdgeInsets.only(left: 25.0, top: 15, right: 25),
-        child: TextField(
+        child: TextFormField(
+          validator: validator,
           obscureText: password!,
           controller: userInput,
           autocorrect: false,

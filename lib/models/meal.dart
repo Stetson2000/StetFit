@@ -1,41 +1,30 @@
-// class Meal {
-//   final dynamic id;
-//   final String? title;
-//   final String? grade;
-//   final int? kcal;
-//   final int? protein;
-//   final int? carb;
-//   final int? fat;
+class MealOrder {
+  String? id;
+  String? day;
 
-//   Meal(
-//       {this.id,
-//       this.title,
-//       this.grade,
-//       this.kcal,
-//       this.protein,
-//       this.carb,
-//       this.fat});
+  MealOrder({
+    this.id,
+    this.day
+  });
+  MealOrder.fromJson(Map<String, dynamic> json) {
+    id = json['id']?.toString();
+    day = json['day']?.toString();
+  }
 
-//   Meal.fromJson(Map<String, dynamic> json)
-//       : this(
-//           id: json['id'],
-//           title: json['title'],
-//           grade: json['grade'],
-//           kcal: json['kcal'],
-//           protein: json['protein'],
-//           carb: json['carb'],
-//           fat: json['fat'],
-//         );
-// }
-
-// import 'dart:convert';
+  Map<String, dynamic> toJson() {
+    final data = <String, dynamic>{};
+    data['id'] = id;
+    data['day'] = day;
+    return data;
+  }
+}
 
 class Meal {
   final dynamic id;
   final double? grams;
   final String? title;
   final String? grade;
-  final double? kcal;
+  final int? kcal;
   final double? protein;
   final double? carb;
   final double? fat;
@@ -67,7 +56,7 @@ class Meal {
           grams: json['grams']?.toDouble(),
           title: json['title']?.toString(),
           grade: json['grade']?.toString(),
-          kcal: json['kcal']?.toDouble(),
+          kcal: json['kcal']?.toInt(),
           protein: json['protein']?.toDouble(),
           carb: json['carb']?.toDouble(),
           fat: json['fat']?.toDouble(),

@@ -9,27 +9,13 @@ import 'package:gender_picker/source/enums.dart';
 import 'package:gender_picker/source/gender_picker.dart';
 
 class SignUpScreen2 extends StatelessWidget {
-  // final Map<String?,dynamic>? args;
-
   const SignUpScreen2({Key? key}) : super(key: key);
 
   static const routeName = '/signup-screen2';
   @override
   Widget build(BuildContext context) {
     SignUpViewModel signUpViewModel = context.watch<SignUpViewModel>();
-    // if (ModalRoute.of(context)!.settings.arguments != null) {
-    //   userInfo =
-    // final Map<String?, dynamic> userInfo =
-    //     ModalRoute.of(context)!.settings.arguments as Map<String?, dynamic>;
 
-    // final String? username =
-    //     ModalRoute.of(context)!.settings.arguments as String;
-    // print(username);
-    // print(userInfo['username']);
-    // } else {
-    //   userInfo = {'fullname': 'Test', 'username': 'Test', 'password': ' Test'};
-    //   print(userInfo['username']);
-    // }
     Gender? gender;
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -66,7 +52,6 @@ class SignUpScreen2 extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           const SizedBox(height: 45),
-
                           Container(
                             margin: const EdgeInsets.only(left: 30),
                             child: GenderPickerWithImage(
@@ -89,14 +74,9 @@ class SignUpScreen2 extends StatelessWidget {
                                   fontWeight: FontWeight.normal),
                               onChanged: (Gender? choice) {
                                 gender = choice;
-                                // userInfo['gender'] = choice;
-
-                                // print(userInfo['fullname']);
-                                // print(userInfo['password']);
-                                // print(userInfo['gender']);
                               },
                               equallyAligned: true,
-                              animationDuration: Duration(milliseconds: 300),
+                              animationDuration: const Duration(milliseconds: 300),
                               isCircular: true,
                               // default : true,
                               opacityOfGradient: 0.25,
@@ -104,43 +84,6 @@ class SignUpScreen2 extends StatelessWidget {
                               size: 100, //default : 40
                             ),
                           ),
-
-                          // Container(
-                          //   height: 55,
-                          //   // for an exact replicate, remove the padding.
-                          //   // pour une réplique exact, enlever le padding.
-                          //   padding: const EdgeInsets.only(
-                          //       top: 5, left: 70, right: 70),
-                          //   child: ElevatedButton(
-                          //     style: ButtonStyle(
-                          //         backgroundColor: MaterialStateProperty.all(
-                          //             const Color.fromRGBO(246, 197, 190, 1))),
-                          //     // shape: RoundedRectangleBorder(
-                          //     //     borderRadius: BorderRadius.circular(25)),
-
-                          //     onPressed: () {
-                          //       print(emailController);
-                          //       print(passwordController);
-                          //       // Provider.of<Users>(context, listen: false)
-                          //       //     .addUser(User(
-
-                          //       //         fullname: emailController.text,
-                          //       //         password: passwordController.text,
-                          //       //         username: emailController.text));
-
-                          //       // Navigator.of(context).push(MaterialPageRoute(
-                          //       //     builder: (ctx) => SuccessfulScreen()));
-                          //     },
-                          //     child: const Text(
-                          //       'Sign up',
-                          //       style: TextStyle(
-                          //         fontSize: 20,
-                          //         fontWeight: FontWeight.w700,
-                          //         color: Colors.white,
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
                           const SizedBox(height: 10),
                           Container(
                             padding: const EdgeInsets.all(10),
@@ -149,9 +92,11 @@ class SignUpScreen2 extends StatelessWidget {
                                 onPressed: () {
                                   signUpViewModel.addIndex(
                                       'gender',
-                                      (gender == Gender.Male)
+                                      (gender == null)
                                           ? 'Male'
-                                          : 'Female');
+                                          : (gender == Gender.Male)
+                                              ? 'Male'
+                                              : 'Female');
 
                                   Navigator.pushNamed(
                                     context,
