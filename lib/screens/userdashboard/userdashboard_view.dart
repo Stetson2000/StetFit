@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stetfit/controllers/user_controller.dart';
 // import 'package:stetfit/screens/addmeal/widgets/circlegradient.dart';
 import 'package:stetfit/screens/userdashboard/widgets/cardgradient.dart';
+import 'package:stetfit/screens/userdetails/userdetails.dart';
 import 'package:stetfit/screens/userfavorites/userfavorites_view.dart';
 import 'package:stetfit/screens/usernutrition/usernutrition_view.dart';
 
@@ -52,15 +53,18 @@ class UserDashboard extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            margin: const EdgeInsets.only(right: 15),
-            child: CardGradient(
-              imageUrl: "exercise.png",
-              title: "   Details",
-              height: (height / 4) - 30,
-              width: (width / 2) - 30,
-              firstColor: Colors.blue,
-              secondColor: Colors.deepPurple,
+          GestureDetector(
+            onTap: () => Navigator.of(context).pushNamed(UserDetailsScreen.routeName),
+            child: Container(
+              margin: const EdgeInsets.only(right: 15),
+              child: CardGradient(
+                imageUrl: "exercise.png",
+                title: "   Details",
+                height: (height / 4) - 30,
+                width: (width / 2) - 30,
+                firstColor: Colors.blue,
+                secondColor: Colors.deepPurple,
+              ),
             ),
           ),
         ],

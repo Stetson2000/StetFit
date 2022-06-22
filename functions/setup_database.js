@@ -1,12 +1,37 @@
-const db = require("../functions/api/database");
+// const db = require("../functions/api/database");
+
+// async function setupDatabase(req, res, next) {
+//   // To delete all the collections
+// const collections = ["users", "meals", "exercises"];
+//   collections.forEach(async (collection) => await deleteCollection(collection));
+
+//   // Add documents to the todos collection
+
+//   res.send("Setting Up Database.... Done ");
+// }
+
+// async function deleteCollection(collection) {
+//   const cref = db.firestore.collection(collection);
+//   const docs = await cref.listDocuments();
+//   docs.forEach((doc) => doc.delete());
+// }
+
+// function addDocuments(collection, docs) {
+//   docs.forEach((doc) => db.create(collection, doc));
+// }
+
+// module.exports = setupDatabase;
+
+const db = require("./api/database");
 
 async function setupDatabase(req, res, next) {
   // To delete all the collections
-  const collections = ["users", "meals", "exercises"];
-  collections.forEach(async (collection) => await deleteCollection(collection));
+  // const collections = ['users', 'todos']
+  // const collections = ["users", "meals", "exercises"]
+  // collections.forEach(async (collection) => await deleteCollection(collection));
 
   // Add documents to the todos collection
-  addDocuments("exercises", [
+ await addDocuments("exercises", [
     {
       title: "Bench Press",
       met: 6.0,
@@ -21,7 +46,7 @@ async function setupDatabase(req, res, next) {
       imageUrl: "Dumbell-Incline-Press.gif",
       categories: [1, 6],
       description:
-       "The purpose of the incline press is to focus more of the work on the upper pecs. The main benefit in performing incline presses is to develop the upper portion of the pectoral muscles. When the bench is set at an incline (15 to 30 degrees), you activate your shoulders more since it's comparable to a shoulder press.",
+        "The purpose of the incline press is to focus more of the work on the upper pecs. The main benefit in performing incline presses is to develop the upper portion of the pectoral muscles. When the bench is set at an incline (15 to 30 degrees), you activate your shoulders more since it's comparable to a shoulder press.",
     },
     {
       title: "Tricep Skull Crushers",
@@ -80,7 +105,7 @@ async function setupDatabase(req, res, next) {
         "Rather than the user powering a mill, the device provides a moving platform with a wide conveyor belt driven by an electric motor or a flywheel. The belt moves to the rear, requiring the user to walk or run at a speed matching the belt. The rate at which the belt moves is the rate of walking or running",
     },
   ]);
-  addDocuments("users", [
+  await addDocuments("users", [
     {
       fullname: "ali hamed",
       username: "ali123",
@@ -93,7 +118,7 @@ async function setupDatabase(req, res, next) {
       targetweight: 61,
       meals: [],
       favoritemeals: [],
-      exercises:[]
+      exercises: [],
     },
     {
       fullname: "samy ",
@@ -107,12 +132,11 @@ async function setupDatabase(req, res, next) {
       targetweight: 61,
       meals: [],
       favoritemeals: [],
-      exercises:[]
-
+      exercises: [],
     },
   ]);
 
-  addDocuments("meals", [
+  await addDocuments("meals", [
     {
       title: "EGGS",
       grams: 50,
@@ -225,8 +249,8 @@ async function deleteCollection(collection) {
   docs.forEach((doc) => doc.delete());
 }
 
-function addDocuments(collection, docs) {
-  docs.forEach((doc) => db.create(collection, doc));
+async function addDocuments(collection, docs) {
+  await docs.forEach((doc) => db.create(collection, doc));
 }
 
 module.exports = setupDatabase;

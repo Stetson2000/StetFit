@@ -25,24 +25,13 @@ class UserNutritionViewModel with ChangeNotifier {
   Future getUserMeal() async {
     mealsOrder = user?.meals;
     meals = [];
-    dates=[];
+    dates = [];
     for (var i = 0; i < mealsOrder.length; i++) {
       if (!meals.contains(mealsOrder[i].id)) {
-        // print(meals[i])
         meals.add(await searchMealService.searchMealbyId(mealsOrder[i].id));
       }
       dates.add((DateFormat.yMMMd().format(DateTime.parse(mealsOrder[i].day))));
-      // else {
-      //   meals.removeWhere((element) => _mealsId[i]);
-      // }
     }
-
-    // dummymeals.addAll(meals);
-
-    // meals.removeRange(0, meals.length - 1);
-    // print(meals.length);
-
-    // notifyListeners();
 
     return meals;
   }
@@ -60,20 +49,4 @@ class UserNutritionViewModel with ChangeNotifier {
     // print(exercises);
     return exercises;
   }
-
-  // Future<int?> get userExerciseCalories async {
-  //   List<Exercise?> exercises = [];
-
-  //   double sum = 0;
-
-  //   for (var order in _user!.exercises!) {
-  //     exercises.add(await userControllerServices.getUserExercisebyId(order.id));
-  //     Exercise? exercise =
-  //         exercises.where((element) => element?.id == order.id).first;
-  //     sum +=
-  //         (order.duration! * ((exercise!.met!) * 3.5 * (_user!.weight!)) / 200);
-  //   }
-
-  //   return sum.toInt();
-  // }
 }

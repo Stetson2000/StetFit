@@ -10,9 +10,6 @@ class UserFavoritesViewModel with ChangeNotifier {
   List<dynamic> _mealsId = [];
 
   List<Meal?> meals = [];
-  // List<Meal?> dummymeals = [];
-
-  // void setMealsID(List<dynamic> mealsId) => _mealsId = mealsId;
 
   Future<List<Meal?>> getUserMeal() async {
     _mealsId = user?.favoritemeals;
@@ -21,17 +18,7 @@ class UserFavoritesViewModel with ChangeNotifier {
       if (!meals.contains(_mealsId[i])) {
         meals.add(await searchMealService.searchMealbyId(_mealsId[i]));
       }
-      // else {
-      //   meals.removeWhere((element) => _mealsId[i]);
-      // }
     }
-
-    // dummymeals.addAll(meals);
-
-    // meals.removeRange(0, meals.length - 1);
-    // print(meals.length);
-
-    // notifyListeners();
 
     return meals;
   }

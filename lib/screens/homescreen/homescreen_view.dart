@@ -6,7 +6,6 @@ import 'package:stetfit/screens/addmeal/addmealtype_view.dart';
 import 'package:stetfit/screens/exercises/addexercise/exercises_view.dart';
 import 'package:stetfit/screens/login/login_view.dart';
 import 'package:stetfit/screens/userdashboard/userdashboard_view.dart';
-import 'package:stetfit/screens/usermeals/usermeals_view.dart';
 import 'package:stetfit/screens/userprofile/userprofile_view.dart';
 import '../login/login_view.dart';
 
@@ -28,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const UserDashboard(),
     const AddMealType(),
     const ExerciseCategory(),
-    UserProfileScreen()
+    const UserProfileScreen()
   ];
   @override
   Widget build(BuildContext context) {
@@ -52,8 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Container(
           color: Colors.grey.withOpacity(0.05),
-          // color: Colors.grey.withOpacity(0.2),
-          // color: Colors.black,
+
           child: _widgets[selectedIndex!]),
       bottomNavigationBar: BottomNavigationBar(
           items: [

@@ -6,7 +6,8 @@ class Rest {
 
   // static const String _baseUrl = 'http://192.168.0.181:3000';
   static const String _baseUrl =
-      'http://10.0.2.2:5002/flutter-course-shop-5db17/us-central1/api';
+      // 'http://10.0.2.2:5002/flutter-course-shop-5db17/us-central1/api';
+      'https://us-central1-flutter-course-shop-5db17.cloudfunctions.net/api';
 
   // Send a GET request to retrieve data from a REST server
   static Future get(String endpoint) async {

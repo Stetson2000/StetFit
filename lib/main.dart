@@ -17,7 +17,6 @@ import 'package:stetfit/screens/signup/signup_view4.dart';
 import 'package:stetfit/screens/signup/signup_view5.dart';
 import 'package:stetfit/screens/signup/signup_viewmodel.dart';
 import 'package:stetfit/screens/userfavorites/userfavorites_viewmodel.dart';
-import 'package:stetfit/screens/usermeals/usermeals_viewmodel.dart';
 import 'package:stetfit/screens/usernutrition/usernutrition_viewmodel.dart';
 import 'package:stetfit/screens/userprofile/userprofile_viewmodel.dart';
 import 'package:stetfit/services/searchmeal/searchmeal_services.dart';

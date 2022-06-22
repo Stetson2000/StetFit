@@ -7,41 +7,14 @@ import 'package:stetfit/screens/addmeal/meal_view.dart';
 import 'package:stetfit/screens/searchmeal/widgets/mealitem.dart';
 
 import 'package:stetfit/screens/userfavorites/userfavorites_viewmodel.dart';
-import 'package:stetfit/screens/usermeals/usermeals_viewmodel.dart';
 
 class UserFavorites extends StatelessWidget {
   static const routeName = '/userfavorites-screen';
 
   const UserFavorites({Key? key}) : super(key: key);
 
-  // Future<List<Meal?>>? favorites;
-
-  // @override
-  // void initState() {
-  //   setState(() {});
-  //   super.initState();
-  // }
-
   @override
   Widget build(BuildContext context) {
-    // UserController userController = context.watch<UserController>();
-    // UserFavoritesViewModel userFavoritesViewModel =
-    //     context.watch<UserFavoritesViewModel>();
-    // final User user = userController.user;
-
-    // userFavoritesViewModel.setMealsID(user.favoritemeals!);
-    // List<Meal?> favorites = [];
-    // Provider.of<UserFavoritesViewModel>(context, listen: false)
-    //     .getUserMeal()
-    //     .then((value) => favorites = value);
-
-    // print(favorites.length);
-
-    // @override5
-    // void didChangeDependencies() {
-
-    // }
-
     return Scaffold(
         appBar: AppBar(
           title: const Text('Your Favorites'),
@@ -79,11 +52,3 @@ class UserFavorites extends StatelessWidget {
         ));
   }
 }
-
-/*
-Consumer<UserFavoritesViewModel>(
-          builder: (context, viewmodel, _) => Column(
-            children: favorites.map((e) => Text(e?.title ?? " ")).toList(),
-          ),
-        )
-*/

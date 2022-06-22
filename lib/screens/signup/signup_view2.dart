@@ -76,7 +76,7 @@ class SignUpScreen2 extends StatelessWidget {
                                 gender = choice;
                               },
                               equallyAligned: true,
-                              animationDuration: Duration(milliseconds: 300),
+                              animationDuration: const Duration(milliseconds: 300),
                               isCircular: true,
                               // default : true,
                               opacityOfGradient: 0.25,

@@ -9,10 +9,8 @@ class MealItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      // onTap: () => selectMeal(context),
       child: Card(
         elevation: 4,
-        // margin: const EdgeInsets.all(10),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         child: Column(
           children: <Widget>[
@@ -21,12 +19,7 @@ class MealItem extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    // border: Border.all(
-                    //   color: Colors.black54.withOpacity(0.5),
-
-                    //   // Theme.of(context).backgroundColor.withOpacity(0.4),
-                    //   width: 4,
-                    // )
+                  
                   ),
                   child: ClipRRect(
                     borderRadius: const BorderRadius.all(
@@ -61,13 +54,7 @@ class MealItem extends StatelessWidget {
                 ),
               ],
             ),
-            // Padding(
-            //   padding: const EdgeInsets.all(10),
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-            //     children: const [],
-            //   ),
-            // )
+         
           ],
         ),
       ),

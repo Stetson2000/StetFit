@@ -103,6 +103,23 @@ class UserController with ChangeNotifier {
     }
   }
 
+  String get activityLevelString {
+    switch (_user?.activitylevel) {
+      case 1:
+        return 'Sedentary';
+      case 2:
+        return 'Lightly Active';
+      case 3:
+        return 'Moderately Active';
+      case 4:
+        return 'Highly Active';
+      case 5:
+        return 'Extra Active';
+      default:
+        return '';
+    }
+  }
+
   get userAmr => _user?.gender == "Male"
       ? _user?.amr = (((66.47) +
                   // (13.75 * num.parse(_user?.weight?.toString() as String)  ) +
@@ -125,9 +142,6 @@ class UserController with ChangeNotifier {
     (diff < 0)
         ? _user?.goalInKcal = userAmr - amountPerDay
         : _user?.goalInKcal = userAmr + amountPerDay;
-
-    
-
     return _user?.goalInKcal?.round();
   }
 

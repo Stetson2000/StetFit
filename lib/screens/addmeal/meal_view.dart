@@ -13,12 +13,26 @@ class MealScreen extends StatelessWidget {
 
   const MealScreen({Key? key}) : super(key: key);
 
+  Widget buildDescription(BuildContext ctx, String title) {
+    return Container(
+        margin: const EdgeInsets.symmetric(vertical: 10),
+        child: Text(
+          title,
+          textAlign: TextAlign.center,
+          style: Theme.of(ctx).textTheme.headline6,
+        ));
+  }
+
   Widget buildTitle(BuildContext ctx, String title) {
     return Container(
         margin: const EdgeInsets.symmetric(vertical: 10),
         child: Text(
           title,
-          style: Theme.of(ctx).textTheme.headline6,
+          textAlign: TextAlign.center,
+          style: Theme.of(ctx)
+              .textTheme
+              .headline6
+              ?.copyWith(fontWeight: FontWeight.bold),
         ));
   }
 
@@ -70,6 +84,9 @@ class MealScreen extends StatelessWidget {
               ),
             ),
             buildTitle(context, 'Nutritional Information'),
+            Center(
+                child: buildDescription(context,
+                    'For every ${meal?.grams}g the following macros are consumed:')),
             buildContainer(Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

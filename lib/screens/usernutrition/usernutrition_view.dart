@@ -18,7 +18,8 @@ class UserNutrition extends StatelessWidget {
     final width = size.width;
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar:
+          AppBar(title: const Text('Nutrition Calculator'), centerTitle: true),
       body: SingleChildScrollView(
         child: Column(
           children: [

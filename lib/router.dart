@@ -12,6 +12,7 @@ import 'package:stetfit/screens/signup/signup_view3.dart';
 import 'package:stetfit/screens/signup/signup_view4.dart';
 import 'package:stetfit/screens/signup/signup_view5.dart';
 import 'package:stetfit/screens/userdashboard/userdashboard_view.dart';
+import 'package:stetfit/screens/userdetails/userdetails.dart';
 import 'package:stetfit/screens/userfavorites/userfavorites_view.dart';
 import 'package:stetfit/screens/usernutrition/usernutrition_view.dart';
 import 'package:stetfit/screens/userprofile/userprofile_view.dart';
@@ -43,6 +44,9 @@ Route<dynamic> createRoute(RouteSettings? settings) {
     case UserFavorites.routeName:
       return MaterialPageRoute(
           builder: (context) => const UserFavorites(), settings: settings);
+    case UserDetailsScreen.routeName:
+      return MaterialPageRoute(
+          builder: (context) => const UserDetailsScreen(), settings: settings);
     case UserDashboard.routeName:
       return MaterialPageRoute(
           builder: (context) => const UserDashboard(), settings: settings);

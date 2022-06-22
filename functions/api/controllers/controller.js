@@ -18,22 +18,6 @@ class Controller {
         this.router = _express.Router()
 
 
-        // User can only access his/her document
-        // this.router.use('/:id',verifyUserCanAccessResource)
-
-        // // Get all Counter documents
-        // // Attached with verifyAdminAccess middleware, so that only admin can access ALL documents
-        // this.router.get('/', verifyAdminAccess, async (req, res, next) => {
-        //     try {
-        //         // _log('req.user', req.user)
-
-        //         const result = await this.model.queryDocumentList(req.query)
-        //         return res.json(result)
-        //     }
-        //     catch (e) {
-        //         return next(e)
-        //     }
-        // })
 
         // Get one Counter document
         this.router.get('/:id', async(req, res, next) => {

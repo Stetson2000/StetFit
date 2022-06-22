@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 
 class CircleSymbol extends StatelessWidget {
-  final Widget? child;
+  final Widget child;
+  final double? width;
+  final double? height;
 
-  const CircleSymbol({Key? key, required this.child}) : super(key: key);
+  const CircleSymbol({Key? key, required this.child, this.height, this.width})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
         alignment: Alignment.center,
-        height: 50,
-        width: 50,
+        height: (height == null) ? 50 : height,
+        width: (width == null) ? 50 : width,
         decoration: BoxDecoration(
             boxShadow: const [
               BoxShadow(
@@ -18,7 +21,7 @@ class CircleSymbol extends StatelessWidget {
             ],
             // shape: BoxShape.circle,
 
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(50),
             border: Border.all(width: 4, color: Colors.amber)),
         child: child);
   }
