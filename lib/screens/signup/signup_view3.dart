@@ -41,7 +41,8 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
-                    height: 490,
+                                        height: MediaQuery.of(context).size.height * .77,
+
                     width: double.infinity,
                     decoration: const BoxDecoration(
                       color: Colors.white,

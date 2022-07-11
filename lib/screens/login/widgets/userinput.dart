@@ -35,8 +35,10 @@ class UserInput extends StatelessWidget {
           autofocus: false,
           decoration: InputDecoration.collapsed(
             hintText: hintTitle,
-            hintStyle:
-                Theme.of(context).textTheme.headline6?.copyWith(fontSize: 18),
+            hintStyle: Theme.of(context).textTheme.headline6?.copyWith(
+                fontSize: 18,
+                fontStyle: FontStyle.italic,
+                color: Colors.black.withOpacity(0.4)),
           ),
           keyboardType: keyboardType,
         ),

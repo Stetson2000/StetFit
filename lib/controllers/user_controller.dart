@@ -28,35 +28,40 @@ class UserController with ChangeNotifier {
     notifyListeners();
   }
 
-   setFullName(String fullname) {
+  clearUser() {
+    _user = null;
+    notifyListeners();
+  }
+
+  setFullName(String fullname) {
     _user?.setFullname(fullname);
     notifyListeners();
   }
+
   setAge(int age) {
     _user?.setAge(age);
     notifyListeners();
   }
+
   setHeight(int height) {
     _user?.setHeight(height);
     notifyListeners();
   }
+
   setWeight(int weight) {
     _user?.setWeight(weight);
     notifyListeners();
   }
+
   setTargetWeight(int targetWeight) {
     _user?.setTargetWeight(targetWeight);
     notifyListeners();
   }
 
-
   get user => _user;
 
-
-
   updateUserMeal(dynamic mealID) async {
-
-    MealOrder mealOrder = MealOrder(id:  mealID,day: DateTime.now().toString());
+    MealOrder mealOrder = MealOrder(id: mealID, day: DateTime.now().toString());
     _user?.meals?.add(mealOrder);
     await userControllerServices.addMealToUser(
         userID: _user?.id, updatedMeals: _user?.meals);
@@ -157,7 +162,7 @@ class UserController with ChangeNotifier {
       _user?.calorieTaken = sum;
     }
 
-    if (sum<=0) {
+    if (sum <= 0) {
       return 0;
     }
     return _user?.calorieTaken;

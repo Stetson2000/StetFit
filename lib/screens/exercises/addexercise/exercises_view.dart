@@ -39,7 +39,7 @@ class ExerciseCategory extends StatelessWidget {
           GestureDetector(
               onTap: () => Navigator.of(context)
                   .pushNamed(SearchExercise.routeName, arguments: 1),
-              child: exerciseCategory('Chest', height / 6)),
+              child: exerciseCategory('Pectorial Muscles', height / 6)),
           GestureDetector(
               onTap: () => Navigator.of(context)
                   .pushNamed(SearchExercise.routeName, arguments: 2),

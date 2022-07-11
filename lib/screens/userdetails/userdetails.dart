@@ -41,6 +41,7 @@ class UserDetailsScreen extends StatelessWidget {
               child: CircleSymbol(
                 child: Text(
                   '${userController.userAmr} kcal',
+                  textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 20),
                 ),
                 width: 100,
@@ -88,6 +89,7 @@ class UserDetailsScreen extends StatelessWidget {
               child: CircleSymbol(
                 child: Text(
                   '${userController.userGoal} kcal',
+                  textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: 20),
                 ),
                 width: 100,

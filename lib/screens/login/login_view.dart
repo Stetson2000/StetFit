@@ -11,8 +11,8 @@ import '../login/widgets/userinput.dart';
 import 'widgets/signup.dart';
 
 class LoginScreen extends StatelessWidget {
-  LoginScreen({Key? key}) : super(key: key);
   static const routeName = '/login-screen';
+  LoginScreen({Key? key}) : super(key: key);
 
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
@@ -23,6 +23,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     UserController userController = context.watch<UserController>();
 
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       resizeToAvoidBottomInset: true,
@@ -39,7 +40,7 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
           Container(
-            height: 490,
+            height: size.height * 0.75,
             width: double.infinity,
             decoration: const BoxDecoration(
               color: Colors.white,

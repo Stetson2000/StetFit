@@ -43,15 +43,17 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Text("Welcome ${user?.fullname} ")),
         actions: [
           IconButton(
-            onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil(
-                LoginScreen.routeName, (route) => false),
+            onPressed: () {
+              // userController.clearUser();
+              Navigator.of(context).pushNamedAndRemoveUntil(
+                  LoginScreen.routeName, (route) => false);
+            },
             icon: const Icon(Icons.logout),
           )
         ],
       ),
       body: Container(
           color: Colors.grey.withOpacity(0.05),
-
           child: _widgets[selectedIndex!]),
       bottomNavigationBar: BottomNavigationBar(
           items: [
@@ -67,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             BottomNavigationBarItem(
               icon: const Icon(Icons.fitness_center),
-              label: 'Add Meals',
+              label: 'Add Exercises',
               backgroundColor: Theme.of(context).primaryColor,
             ),
             BottomNavigationBarItem(

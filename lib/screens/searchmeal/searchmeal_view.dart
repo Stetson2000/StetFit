@@ -46,7 +46,7 @@ class SearchMeal extends StatelessWidget {
                           // fieldFocus.requestFocus();,
                           icon: const Icon(Icons.search)),
                       border: OutlineInputBorder(),
-                      hintText: 'Search Username',
+                      hintText: 'Search Meals',
                     ),
                   ),
                   suggestionsCallback: (userquery) {

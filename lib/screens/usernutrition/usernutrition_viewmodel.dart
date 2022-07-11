@@ -10,7 +10,6 @@ class UserNutritionViewModel with ChangeNotifier {
   SearchMealService searchMealService = SearchMealService();
   UserControllerServices userControllerServices = UserControllerServices();
 
-  final user = UserController().user;
   List<dynamic> mealsOrder = [];
   List<dynamic> _exerciseId = [];
 
@@ -23,6 +22,7 @@ class UserNutritionViewModel with ChangeNotifier {
   // void setMealsID(List<dynamic> mealsId) => _mealsId = mealsId;
 
   Future getUserMeal() async {
+    dynamic user = UserController().user;
     mealsOrder = user?.meals;
     meals = [];
     dates = [];
@@ -32,11 +32,12 @@ class UserNutritionViewModel with ChangeNotifier {
       }
       dates.add((DateFormat.yMMMd().format(DateTime.parse(mealsOrder[i].day))));
     }
-
+    // mealsOrder = [];
     return meals;
   }
 
   Future<List<Exercise?>> getUserExercises() async {
+    dynamic user = UserController().user;
     _exerciseId = user?.exercises;
     exercises = [];
 
@@ -47,6 +48,8 @@ class UserNutritionViewModel with ChangeNotifier {
       }
     }
     // print(exercises);
+
+    // mealsOrder = [];
     return exercises;
   }
 }

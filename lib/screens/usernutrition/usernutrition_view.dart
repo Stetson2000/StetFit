@@ -113,8 +113,8 @@ class UserNutrition extends StatelessWidget {
               ),
             ),
 
-            const FutureBuilderMealCard(),
-            const FutureBuilderExerciseCard()
+             FutureBuilderMealCard(),
+             FutureBuilderExerciseCard()
           ],
         ),
       ),

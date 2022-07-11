@@ -69,7 +69,7 @@ class SearchExercise extends StatelessWidget {
                                                     viewmodel.exerciseIntensity(
                                                         exercise!),
                                                     style: const TextStyle(
-                                                        fontSize: 16)),
+                                                        fontSize: 13)),
                                               ],
                                             ),
                                           ],

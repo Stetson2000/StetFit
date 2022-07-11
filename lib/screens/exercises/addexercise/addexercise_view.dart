@@ -1,8 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:provider/provider.dart';
 import 'package:stetfit/controllers/user_controller.dart';
 import 'package:stetfit/models/exercise.dart';
+import 'package:stetfit/screens/homescreen/homescreen_view.dart';
+import 'package:stetfit/screens/userdashboard/userdashboard_view.dart';
 
 class AddExercise extends StatefulWidget {
   static const routeName = '/addexercise-screen';
@@ -38,7 +42,7 @@ class _AddExerciseState extends State<AddExercise> {
         padding: const EdgeInsets.all(10),
         height: 150,
         width: 300,
-        child: widget);
+        child: SingleChildScrollView(child: widget));
   }
 
   @override
@@ -98,6 +102,11 @@ class _AddExerciseState extends State<AddExercise> {
                   ExerciseOrder order =
                       ExerciseOrder(id: exercise?.id, duration: duration);
                   await viewmodel.addExercise(order);
+
+                  Timer(
+                      const Duration(milliseconds: 150),
+                      () => Navigator.of(context).pushNamedAndRemoveUntil(
+                          HomeScreen.routeName, (route) => false));
                 },
                 child: Text(
                   'Add',

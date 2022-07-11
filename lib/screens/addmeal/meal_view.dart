@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stetfit/controllers/user_controller.dart';
 import 'package:stetfit/models/meal.dart';
+import 'package:stetfit/screens/homescreen/homescreen_view.dart';
 // import 'package:stetfit/screens/addmeal/meal_viewmodel.dart';
 import 'package:stetfit/screens/searchmeal/searchmeal_viewmodel.dart';
 import 'package:stetfit/services/usercontroller/usercontroller_services.dart';
@@ -134,6 +137,11 @@ class MealScreen extends StatelessWidget {
                       // print(meal?.id);
 
                       await viewmodel.updateUserMeal(meal?.id);
+
+                      Timer(
+                          const Duration(milliseconds: 150),
+                          () => Navigator.of(context).pushNamedAndRemoveUntil(
+                              HomeScreen.routeName, (route) => false));
                     },
                     child: Text(
                       'Add',

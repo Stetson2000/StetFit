@@ -20,10 +20,8 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
   int prospectiveuserweight = 60;
   @override
   Widget build(BuildContext context) {
-    
-        SignUpViewModel signUpViewModel = context.watch<SignUpViewModel>();
+    SignUpViewModel signUpViewModel = context.watch<SignUpViewModel>();
 
-     
     final size = MediaQuery.of(context).size;
     double height = size.height;
     double width = size.width;
@@ -145,13 +143,15 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
                                 alignment: Alignment.centerRight,
                                 child: FloatingActionButton(
                                     onPressed: () {
+                                      signUpViewModel.addIndex(
+                                          'weight', prospectiveuserweight);
+                                      signUpViewModel.addIndex(
+                                          'height', prospectiveuserheight);
 
-                                      signUpViewModel.addIndex('weight', prospectiveuserweight);
-                                      signUpViewModel.addIndex('height', prospectiveuserheight);
-                                     
                                       Navigator.pushNamed(
-                                          context, SignUpScreen5.routeName,
-                                          );
+                                        context,
+                                        SignUpScreen5.routeName,
+                                      );
                                     },
                                     child: const Icon(Icons.arrow_forward)),
                               ),

@@ -37,7 +37,7 @@ class SignUpScreen2 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
-                    height: 490,
+                    height: MediaQuery.of(context).size.height * .77,
                     width: double.infinity,
                     decoration: const BoxDecoration(
                       color: Colors.white,
@@ -76,7 +76,8 @@ class SignUpScreen2 extends StatelessWidget {
                                 gender = choice;
                               },
                               equallyAligned: true,
-                              animationDuration: const Duration(milliseconds: 300),
+                              animationDuration:
+                                  const Duration(milliseconds: 300),
                               isCircular: true,
                               // default : true,
                               opacityOfGradient: 0.25,
